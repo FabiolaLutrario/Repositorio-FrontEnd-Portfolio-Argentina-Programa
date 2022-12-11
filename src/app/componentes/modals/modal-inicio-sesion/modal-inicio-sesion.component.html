@@ -1,0 +1,48 @@
+<div class="modal fade" data-bs-backdrop="static" data-bs-keyboard="false" id="userLockModal" tabindex="-1" aria-labelledby="userLockModalLabel" aria-hidden="true">
+    <div class="modal-dialog" >
+      <div class="modal-content">
+        <div class="modal-header">
+          <h5 class="modal-title" id="userLockModalLabel">Login</h5>
+          <button id="botonCerrarModalSesion" type="button" class="btn-close" data-bs-dismiss="modal"
+          aria-label="Close"></button>
+        </div>
+    
+        <form [formGroup]="form"  (ngSubmit)="onEnviar($event)">
+        <div class="modal-body">
+          <div class="mb-3 row">
+            <label for="email" class="col-sm-2 col-form-label">Email</label>
+            <div class="col-sm-10">
+              <input type="email" formControlName="email" class="form-control" id="email">
+            </div>
+          </div>
+          <div *ngIf="Mail?.errors  && Mail?.touched">    
+            <p *ngIf="Mail?.hasError('required')" class="alert alert-danger">
+                El email es requerido.
+            </p>
+            <p *ngIf="Mail?.hasError('email')" class="alert alert-danger">
+                El formato del email debe ser válido.
+              </p>
+        </div>
+          <div class="mb-3 row">
+            <label for="exampleInputPassword1" class="col-sm-2 col-form-label">Contraseña</label>
+            <div class="col-sm-10">
+              <input type="password" formControlName="password" class="form-control" id="password">
+            </div>
+          </div> 
+          <div *ngIf="Password?.errors  && Password?.touched">
+            <p *ngIf="Password?.hasError('required')" class="alert alert-danger">
+              La contraseña es requerida.
+            </p>
+
+          </div>
+        </div>
+        <div class="modal-footer">
+          <button type="submit"  id="botonInicioSesion" class="btn btn-primary">
+            <a routerLink="/dashboard" data-bs-dismiss="modal" style="color: #ffffff; text-decoration: none;"> Iniciar sesión</a>
+          </button>
+        </div>
+      </form>
+
+      </div>
+    </div>
+    </div>

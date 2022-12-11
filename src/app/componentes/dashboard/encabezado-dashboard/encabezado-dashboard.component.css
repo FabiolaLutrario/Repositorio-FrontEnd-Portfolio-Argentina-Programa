@@ -1,0 +1,39 @@
+i.fa-solid.fa-user.fa-2xl {
+    text-decoration: none;
+    color: #fff;
+    display: inline-block;
+    margin-left: 10px;
+    transition: .5s;
+}
+
+i.fa-solid.fa-user.fa-2xl:hover {
+    color: #ee0808;
+    transition: .5s;
+}
+
+#inicio {
+    background-size: cover;
+    background-position: center center;
+}
+
+#inicio .contenido header {
+    background-color: #8d8c89ce;
+    width: 100%;
+    z-index: 100;
+    top: 0;
+}
+
+#inicio .contenido header .contenido-header {
+    margin: auto;
+    display: inline-flexbox;
+    justify-content: space-between;
+    align-items: center;
+    position: relative;
+    height: auto;
+}
+
+.logosNavegacion {
+    position: absolute;
+    top: 40%;
+    right: 1rem;
+}

@@ -1,0 +1,14 @@
+i.fa-brands.fa-square-facebook.fa-xl:hover {
+    color: #1d20d8;
+    transition: .5s;
+}
+
+i.fa-brands.fa-linkedin.fa-xl:hover {
+    color: #78BCDC;
+    transition: .5s;
+}
+
+i.fa-brands.fa-github.fa-xl:hover {
+    color: #000000;
+    transition: .5s;
+}

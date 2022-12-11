@@ -1,0 +1,70 @@
+<section id="proyectos" class="rounded">
+    <div class="container-fluid">
+
+        <div class="row g-0">
+
+            <div class="col-11">
+                <h3 style="padding-top: 1rem;">Proyectos</h3>
+            </div>
+            <div class="col-1 text-end" style="padding-top: 1rem; padding-right: 1rem;">
+
+                <!-- Button trigger modal -->
+                <button type="button" id="botonAgregarProyecto"
+                data-bs-toggle="modal" data-bs-target="#agregarProyectoModal"
+                    class="btn btn-success rounded-circle btn-sm"><i class="fa-solid fa-plus">
+                    </i>
+                </button>
+
+                <!-- Modal -->
+                <app-modal-agregar-proyecto>
+                </app-modal-agregar-proyecto>
+
+            </div>
+        </div>
+
+        <div class="card mb-3">
+            <div id="bordeTarjetas" *ngFor="let proyecto of proyectos" class="row g-0">
+                <div class="col-1 text-center">
+                    <img [src]="proyecto.logoProyecto" class="img-fluid rounded-start" width="50px" alt="...">
+                </div>
+                <div class="col-10">
+                    <div class="card-body" style="padding: 0;">
+                        <h5 id="proyectoNombre" class="card-title">{{proyecto.nombre}}</h5>
+                        <p id="proyectoFecha" class="card-text"><small class="text-muted">{{proyecto.fechaRealizacion}}</small></p>
+                        <p id="proyectoDescripcion" class="card-text">{{proyecto.descripcion}}</p>
+                        <a id="proyectoLink" [href]="proyecto.link" target="_blank">Link del proyecto</a>
+                        <div class="container" style="text-align: center;">
+                        <img id="proyectoImg" [src]="proyecto.img" class="container-fluid">
+                    </div>
+                    </div>
+                </div>
+
+                <div class="col-1 text-end">
+
+                    <!-- Button trigger modal -->
+                    <button type="button" id="botonEditarProyecto"
+                    data-bs-toggle="modal" data-bs-target="#editarProyectoModal"
+                        class="btn btn-success rounded-circle btn-sm"><i class="fa-solid fa-pen">
+                        </i>
+                    </button>
+
+                    <!-- Modal -->
+                    <app-modal-editar-proyecto>
+                    </app-modal-editar-proyecto>
+
+                    <!-- Button trigger modal -->
+                    <button type="button" id="botonEliminarProyecto"
+                    data-bs-toggle="modal" data-bs-target="#eliminarProyectoModal"
+                        class="btn btn-success rounded-circle btn-sm"><i class="fa-solid fa-trash-can">
+                        </i>
+                    </button>
+
+                    <!-- Modal -->
+                    <app-modal-eliminar-proyecto>
+                    </app-modal-eliminar-proyecto>
+
+                </div>
+            </div>
+        </div>
+    </div>
+</section>

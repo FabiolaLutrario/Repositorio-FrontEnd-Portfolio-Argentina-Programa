@@ -1,0 +1,65 @@
+<section id="experiencia" class="rounded">
+    <div class="container-fluid">
+        <div class="row g-0">
+            <div class="col-11">
+                <h3 style="padding-top: 1rem;">Experiencia Laboral</h3>
+            </div>
+            <div class="col-1 text-end" style="padding-top: 1rem; padding-right: 1rem;">
+
+                <!-- Button trigger modal -->
+                <button id="botonAgregarExperiencia" type="button" data-bs-toggle="modal" data-bs-target="#agregarNuevaExperienciaModal"
+                    class="btn btn-success rounded-circle btn-sm"><i class="fa-solid fa-plus">
+                    </i>
+                </button>
+
+                <!-- Modal -->
+                <app-modal-agregar-experiencia>
+                </app-modal-agregar-experiencia>
+
+            </div>
+        </div>
+
+        <div class="card mb-3">
+            <div id="bordeTarjetas" *ngFor="let experiencia of experiencias" class="row g-0">
+                <div class="col-1 text-center">
+                    <img [src]="experiencia.logoEmpresa" class="img-fluid rounded-start" width="50px"
+                        alt="...">
+                </div>
+                <div class="col-10">
+                    <div style="padding: 0;" class="card-body">
+                        <h5 id="experienciaCargo" class="card-title">{{experiencia.cargo}}</h5>
+                        <p id="experienciaEmpresa" >{{experiencia.empresa}}</p>
+                        <p id="experienciaPeriodo" class="card-text"><small class="text-muted">{{experiencia.periodo}}</small></p>
+                        <p id="experienciaDescripcion" class="card-text">{{experiencia.descripcion}}
+                        </p>
+                    </div>
+                </div>
+
+                <div class="col-1 text-end">
+
+                    <!-- Button trigger modal -->
+                    <button type="button" id="botonEditarExperiencia" data-bs-toggle="modal" data-bs-target="#editarExperienciaModal"
+                        class="btn btn-success rounded-circle btn-sm"><i class="fa-solid fa-pen">
+                        </i>
+                    </button>
+
+                    <!-- Modal -->
+                    <app-modal-editar-experiencia>
+                    </app-modal-editar-experiencia>
+
+                    <!-- Button trigger modal -->
+                    <button id="botonEliminarExperiencia" type="button" data-bs-toggle="modal" 
+                    data-bs-target="#eliminarExperienciaModal"
+                        class="btn btn-success rounded-circle btn-sm"><i class="fa-solid fa-trash-can">
+                        </i>
+                    </button>
+
+                    <!-- Modal -->
+                    <app-modal-eliminar-experiencia>
+                    </app-modal-eliminar-experiencia>
+                    
+                </div>
+            </div>
+        </div>
+    </div>
+</section>

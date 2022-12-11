@@ -1,0 +1,23 @@
+.card-body{
+    margin-bottom: 0.5rem;
+    margin-top: 0.5rem;
+}
+
+.col-1.text-center{
+    margin-top: 0.5rem;
+}
+
+#proyectoImg{
+    max-width: 300px;
+    max-height: 300px;
+}
+
+#proyectoDescripcion{
+    text-align: justify;
+}
+
+@media(max-width:815px) {
+    #botonFotoPerfil {
+        top: 30% !important;
+    }
+}

@@ -1,0 +1,68 @@
+{
+	"banner": "assets/IMG/banner 4.jpg",
+	"fotoPerfil": "assets/IMG/fotoPerfil2.jpg",
+	"nombre": "Fabiola Lutrario",
+	"titulo": "Full Stack Developer Jr.",
+	"experiencia": [{
+		"id":1,
+		"logoEmpresa": "assets/IMG/logo empresa.png",
+		"cargo": "Auxiliar Administrativo",
+		"empresa": "Supermercado Popular",
+		"periodo": "08/2015 - 11/2017",
+		"descripcion": "Manejo de base de datos en sistema administrativo ZEUS, arqueo de caja, atención a proveedores, actualización de libros de compra-venta, elaboración de contratos, sobres de pago y liquidación, control de asistencia diaria mediante lector biométrico, control de inventario, entre otras actividades inherentes al cargo."
+	}],
+	"educacion": [{
+		"id":1,
+		"logoCentroEducativo": "assets/IMG/icono graduacion.png",
+		"titulo": "Licenciatura en Educación Informática",
+		"centroEducativo": "Universidad del Zulia - Venezuela",
+		"periodo": "04/2012 - 03/2017",
+		"descripcion": "Hola. Soy una universidad"
+	},
+	{
+		"id":2,
+		"logoCentroEducativo": "assets/IMG/icono graduacion.png",
+		"titulo": "Desarrolladora Web BackEnd",
+		"centroEducativo": "ADA ITW",
+		"periodo": "03/2022 - 12/2022",
+		"descripcion": "ONG que busca reducir la brecha de género en tecnología impartiendo cursos de programación a mujeres."
+	}],
+	"habilidades": [{
+		"id":1,
+		"habilidad": "Trabajo en Equipo",
+		"porcentaje": 50
+	},
+	{
+		"id":2,
+		"habilidad": "Compañerismo",
+		"porcentaje": 97
+	}],
+	"idiomas": [{
+		"id":1,
+		"idioma": "Español",
+		"porcentaje": 99
+	},
+	{
+		"id":2,
+		"idioma": "Inglés",
+		"porcentaje": 30
+	}],
+	"proyectos": [{
+		"id":1,
+		"logoProyecto": "assets/IMG/engranaje.png",
+		"nombre": "Portfolio Web",
+		"fechaRealizacion": "07/2021 - 01/2022",
+		"descripcion": "Diseño y programación del presente Portfolio Web seguiendo los lineamientos de Argentina Programa.",
+		"link": "https://www.google.com/",
+		"img": "assets/IMG/imagenProyectos.png"
+	},
+	{
+		"id":2,
+		"logoProyecto": "assets/IMG/engranaje.png",
+		"nombre": "Bloquera J.M., C.A.",
+		"fechaRealizacion": "03/2016 - 11/2016",
+		"descripcion": "Diseño de Página Web Estática para un Corralón.",
+		"link": "https://www.facebook.com/",
+		"img": "assets/IMG/imagenProyectos.png"
+	}]
+}

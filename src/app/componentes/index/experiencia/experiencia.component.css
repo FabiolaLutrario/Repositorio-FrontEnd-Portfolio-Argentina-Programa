@@ -1,0 +1,19 @@
+#experienciaCargo,
+#experienciaEmpresa,
+#experienciaPeriodo,
+#experienciaDescripcion{
+    margin-bottom: 0.2rem;
+}
+
+.card-body{
+    margin-bottom: 0.5rem;
+    margin-top: 0.5rem;
+}
+
+.col-1.text-center{
+    margin-top: 0.5rem;
+}
+
+#experienciaDescripcion{
+    text-align: justify;
+}

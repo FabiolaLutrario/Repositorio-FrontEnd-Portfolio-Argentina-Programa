@@ -1,0 +1,66 @@
+<section id="habilidades" class="rounded">
+    <div class="container-fluid">
+
+        <div class="row g-0">
+            <div class="col-11">
+                <h3 style="padding-top: 1rem;">Habilidades</h3>
+            </div>
+            <div class="col-1 text-end" style="padding-top: 1rem; padding-right: 1rem;">
+
+                <!-- Button trigger modal -->
+                <button type="button" id="botonAgregarHabilidad" data-bs-toggle="modal"
+                data-bs-target="#agregarHabilidadModal"
+                    class="btn btn-success rounded-circle btn-sm"><i class="fa-solid fa-plus">
+                    </i>
+                </button>
+
+                <!-- Modal -->
+                <app-modal-agregar-habilidad>
+                </app-modal-agregar-habilidad>
+
+            </div>
+        </div>
+
+        <div class="card mb-3">
+            <div *ngFor="let habilidad of habilidades" id="habilidad" class="row g-0">
+
+                <div class="col-11">
+                     <div  class="card-body" style="padding: 0;">
+                        <h5 class="card-title">{{habilidad.habilidad}}</h5>
+                        <div class="progress">
+                            <div class="progress-bar bg-info" role="progressbar" aria-label="Info example"
+                                [style.width.%]="habilidad.porcentaje" aria-valuenow="habilidad.porcentaje" aria-valuemin="0" aria-valuemax="100">
+                            </div>
+                        </div>
+                    </div>
+                </div>
+
+                <div class="col-1 text-end">
+
+                    <!-- Button trigger modal -->
+                    <button type="button" id="botonEditarHabilidad"
+                    data-bs-toggle="modal" data-bs-target="#editarHabilidadModal"
+                        class="btn btn-success rounded-circle btn-sm"><i class="fa-solid fa-pen">
+                        </i>
+                    </button>
+
+                    <!-- Modal -->
+                    <app-modal-editar-habilidad>
+                    </app-modal-editar-habilidad>
+
+                    <!-- Button trigger modal -->
+                    <button type="button" id="botonEliminarHabilidad"
+                    data-bs-toggle="modal" data-bs-target="#eliminarHabilidadModal"
+                        class="btn btn-success rounded-circle btn-sm"><i class="fa-solid fa-trash-can">
+                        </i>
+                    </button>
+
+                    <!-- Modal -->
+                    <app-modal-eliminar-habilidad>
+                    </app-modal-eliminar-habilidad>
+                    
+                </div>
+            </div>
+        </div>
+    </div>
+</section>

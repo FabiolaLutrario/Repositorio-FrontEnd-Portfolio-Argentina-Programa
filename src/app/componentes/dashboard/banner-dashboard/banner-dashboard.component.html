@@ -1,0 +1,15 @@
+<div class="banner" style="position:relative">
+
+    <!-- Button trigger modal -->
+    <button type="button" id="botonBanner" style="position:absolute; margin-top:2rem; right: 3rem;" data-bs-toggle="modal"
+        data-bs-target="#bannerModal" class="btn btn-success rounded-circle btn-sm">
+        <i class="fa-solid fa-pen">
+        </i>
+    </button>
+
+    <!-- Modal -->
+    <app-modal-editar-banner>
+    </app-modal-editar-banner>
+
+    <img [src]="miBanner.banner" class="d-block w-100" alt="...">
+</div>
