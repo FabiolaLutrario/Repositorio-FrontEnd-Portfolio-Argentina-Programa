@@ -9,26 +9,26 @@ aria-labelledby="editarExperienciaModalLabel" aria-hidden="true">
                 aria-label="Close"></button>
         </div>
 
-        <div class="modal-body">
+        <div class="modal-body" *ngFor="let experiencia of experiencias">
             <div class="mb-3">
                 <h5 style="text-align:left" class="form-label">Cargo:</h5>
-                <input class="form-control" type="text" id="formText">
+                <input class="form-control" value={{experiencia.cargo}} type="text" id="formText">
             </div>
             <div class="mb-3">
                 <h5 style="text-align:left" class="form-label">Empresa:</h5>
-                <input class="form-control" type="text" id="formText">
+                <input class="form-control" value={{experiencia.empresa}} type="text" id="formText">
             </div>
             <div class="mb-3">
                 <h5 style="text-align:left" class="form-label">Período:</h5>
-                <input class="form-control" type="text" id="formText">
+                <input class="form-control" value={{experiencia.periodo}} type="text" id="formText">
             </div>
             <div class="mb-3">
                 <h5 style="text-align:left" class="form-label">Logo de la Empresa:</h5>
-                <input class="form-control" type="file" id="formFile">
+                <input class="form-control" value={{experiencia.logoEmpresa}} type="file" id="formFile">
             </div>
             <div class="mb-3">
                 <h5 style="text-align:left" class="form-label">Descripción:</h5>
-                <textarea class="form-control" aria-label="With textarea"></textarea>
+                <textarea class="form-control" value={{experiencia.descripcion}} aria-label="With textarea"></textarea>
             </div>
         </div>
         <div class="modal-footer">

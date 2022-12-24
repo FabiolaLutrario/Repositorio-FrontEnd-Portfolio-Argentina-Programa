@@ -8,28 +8,28 @@ aria-labelledby="editarEducacionModalLabel" aria-hidden="true">
                 aria-label="Close"></button>
         </div>
 
-        <div class="modal-body">
+        <div class="modal-body" *ngFor="let estudio of estudios">
             <div class="mb-3">
                 <h5 style="text-align:left" class="form-label">Título:</h5>
-                <input class="form-control" type="text" id="formText">
+                <input class="form-control" value={{estudio.titulo}} type="text" id="formText">
             </div>
             <div class="mb-3">
                 <h5 style="text-align:left" class="form-label">Centro Educativo:</h5>
-                <input class="form-control" type="text" id="formText">
+                <input class="form-control" value={{estudio.centroEducativo}} type="text" id="formText">
             </div>
             <div class="mb-3">
                 <h5 style="text-align:left" class="form-label">Período:</h5>
-                <input class="form-control" type="text" id="formText">
+                <input class="form-control" value={{estudio.periodo}} type="text" id="formText">
             </div>
             <div class="mb-3">
                 <h5 style="text-align:left" class="form-label">Logo del Centro
                     Educativo:</h5>
-                <input class="form-control" type="file" id="formFile">
+                <input class="form-control" value={{estudio.logoCentroEducativo}} type="file" id="formFile">
             </div>
             <div class="mb-3">
                 <h5 style="text-align:left" class="form-label">Descripción (Opcional):
                 </h5>
-                <textarea class="form-control" aria-label="With textarea"></textarea>
+                <textarea class="form-control" value={{estudio.descripcion}} aria-label="With textarea"></textarea>
             </div>
 
             <div class="modal-footer">
