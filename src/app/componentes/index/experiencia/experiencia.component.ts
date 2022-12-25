@@ -1,5 +1,8 @@
 import { Component, OnInit } from '@angular/core';
+import { Experiencia } from 'src/app/model/experiencia';
+import { ExperienciaService } from 'src/app/servicios/experiencia.service';
 import { PortfolioService } from 'src/app/servicios/portfolio.service';
+import { TokenService } from 'src/app/servicios/token.service';
 
 @Component({
   selector: 'app-experiencia',
@@ -8,15 +11,23 @@ import { PortfolioService } from 'src/app/servicios/portfolio.service';
 })
 
 export class ExperienciaComponent implements OnInit {
-  experiencias:any=[];
+  experiencias:Experiencia[]=[];
 
-  constructor(private datosPortfolio:PortfolioService) { }
+  constructor(private experienciaService: ExperienciaService, private tokenService: TokenService) { }
+
+  isLogged=false;
 
   ngOnInit(): void {
-    this.datosPortfolio.obtenerDatos().subscribe(data => {
-      this.experiencias=data.experiencia;
-    })
-
+    this.cargarExperiencia();
+    if(this.tokenService.getToken()){
+      this.isLogged = true;
+    }else{
+      this.isLogged = false;
+    }
   }
 
+  cargarExperiencia(): void{
+    this.experienciaService.lista().subscribe(
+      data => {this.experiencias=data;})
+  }
 }

@@ -9,8 +9,21 @@
                 <app-redes>
                 </app-redes>
                 <!-- Button trigger modal -->
-                <i class="fa-solid fa-user-lock fa-2xl" id="logoIniciarSesion" type="button" data-bs-toggle="modal" data-bs-target="#userLockModal">  
+                <i class="fa-solid fa-user-lock fa-2xl" id="logoIniciarSesion" type="button"
+                *ngIf="!isLogged" data-bs-toggle="modal" data-bs-target="#userLockModal">  
                 </i>
+
+                <!-- Button LogOut -->
+                <a class="nav-link dropdown-toggle" id="logoCerrarSesion" data-bs-toggle="dropdown" href="#" role="button"
+                *ngIf="isLogged" aria-expanded="false">
+                <i class="fa-solid fa-user fa-2xl"></i>
+            </a>
+            <ul class="dropdown-menu">
+                <li><a id="opcionCerrarSesion" class="dropdown-item  nav justify-content-end" href="#scrollspyHeading5"
+                     style="color: #000000;" (click)="onLogOut()">Cerrar Sesión</a>
+                    </li>
+                </ul>
+
                 <!-- Modal -->
                 <app-modal-inicio-sesion>
                 </app-modal-inicio-sesion>

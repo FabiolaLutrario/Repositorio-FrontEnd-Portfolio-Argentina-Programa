@@ -7,17 +7,19 @@
         </div>
 
         <div class="card mb-3">
-            <div id="bordeTarjetas" *ngFor="let experiencia of experiencias" class="row g-0">
+            <div id="bordeTarjetas" *ngFor="let Experiencia of experiencias" class="row g-0">
                 <div class="col-1 text-center">
-                    <img [src]="experiencia.logoEmpresa" class="img-fluid rounded-start" width="50px"
+                    <img [src]="Experiencia.logo" class="img-fluid rounded-start" width="50px"
                         alt="...">
                 </div>
                 <div class="col-10">
                     <div style="padding: 0;" class="card-body">
-                        <h5 id="experienciaCargo" class="card-title">{{experiencia.cargo}}</h5>
-                        <p id="experienciaEmpresa" >{{experiencia.empresa}}</p>
-                        <p id="experienciaPeriodo" class="card-text"><small class="text-muted">{{experiencia.periodo}}</small></p>
-                        <p id="experienciaDescripcion" class="card-text">{{experiencia.descripcion}}
+                        <h5 id="experienciaCargo" class="card-title">{{Experiencia.cargo}}</h5>
+                        <p id="experienciaEmpresa" >{{Experiencia.empresa}}</p>
+                        <p id="experienciaPeriodo" class="card-text"><small class="text-muted">{{Experiencia.fechaInicio}} - 
+                            {{Experiencia.fechaFin}}
+                        </small></p>
+                        <p id="experienciaDescripcion" class="card-text">{{Experiencia.descripcion}}
                         </p>
                     </div>
                 </div>

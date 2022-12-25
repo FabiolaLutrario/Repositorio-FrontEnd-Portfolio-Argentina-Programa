@@ -7,26 +7,25 @@
           aria-label="Close"></button>
         </div>
     
-        <form [formGroup]="form"  (ngSubmit)="onLogin($event)">
+        <form [formGroup]="form"  (ngSubmit)="onLogin($event)" novalidate>
         <div class="modal-body">
           <div class="mb-3 row">
-            <label for="email" class="col-sm-2 col-form-label">Email</label>
+            <label for="nombreUsuario" class="col-sm-2 col-form-label">Usuario</label>
             <div class="col-sm-10">
-              <input type="email" formControlName="email" class="form-control" id="email">
+              <input type="text" formControlName="nombreUsuario" class="form-control" id="nombreUsuario"
+              [(ngModel)]="nombreUsuario" required />
             </div>
           </div>
-          <div *ngIf="Mail?.errors  && Mail?.touched">    
-            <p *ngIf="Mail?.hasError('required')" class="alert alert-danger">
-                El email es requerido.
+          <div *ngIf="NombreUsuario?.errors  && NombreUsuario?.touched">    
+            <p *ngIf="NombreUsuario?.hasError('required')" class="alert alert-danger">
+                El usuario es requerido.
             </p>
-            <p *ngIf="Mail?.hasError('email')" class="alert alert-danger">
-                El formato del email debe ser válido.
-              </p>
         </div>
           <div class="mb-3 row">
-            <label for="exampleInputPassword1" class="col-sm-2 col-form-label">Contraseña</label>
+            <label for="password" class="col-sm-2 col-form-label">Contraseña</label>
             <div class="col-sm-10">
-              <input type="password" formControlName="password" class="form-control" id="password">
+              <input type="password" formControlName="password" class="form-control" id="password"
+              [(ngModel)]="password" required />
             </div>
           </div> 
           <div *ngIf="Password?.errors  && Password?.touched">
@@ -35,14 +34,22 @@
             </p>
 
           </div>
+
+          <!-- <p class="small mb-5 pb-lg-2"><a class="text-white-50" href="#!">¿Olvidó la contraseña?</a></p> -->
+
+          <div>
+            <p class="mb-0">¿No tienes una cuenta? <a href="#!" class="text-black-50 fw-bold">Crear usuario</a>
+            </p>
+          </div>
+
         </div>
         <div class="modal-footer">
           <button type="submit"  id="botonInicioSesion" class="btn btn-primary">
-            <a routerLink="/dashboard" data-bs-dismiss="modal" style="color: #ffffff; text-decoration: none;"> Iniciar sesión</a>
+            <a style="color: #ffffff; text-decoration: none;"> Iniciar sesión</a>
           </button>
         </div>
       </form>
-
       </div>
+
     </div>
     </div>

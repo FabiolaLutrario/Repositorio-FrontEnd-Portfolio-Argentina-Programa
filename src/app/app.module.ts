@@ -46,6 +46,7 @@ import { ModalInicioSesionComponent } from './componentes/modals/modal-inicio-se
 import { RedesComponent } from './componentes/redes/redes.component';
 import { LogoArgProgComponent } from './componentes/logo-arg-prog/logo-arg-prog.component';
 import { FormsModule, ReactiveFormsModule } from '@angular/forms'
+import { interceptorProvider } from './servicios/interceptor-service';
 
 @NgModule({
   declarations: [
@@ -99,7 +100,9 @@ import { FormsModule, ReactiveFormsModule } from '@angular/forms'
     FormsModule,
     ReactiveFormsModule
   ],
-  providers: [],
+  providers: [
+    interceptorProvider
+  ],
   bootstrap: [AppComponent]
 })
 export class AppModule { }

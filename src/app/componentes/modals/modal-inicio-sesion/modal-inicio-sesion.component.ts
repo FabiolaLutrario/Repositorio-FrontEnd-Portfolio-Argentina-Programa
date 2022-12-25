@@ -5,6 +5,7 @@ import { LoginUsuario } from 'src/app/model/login-usuario';
 import { AuthService } from 'src/app/servicios/auth.service';
 import { TokenService } from 'src/app/servicios/token.service';
 
+
 @Component({
   selector: 'app-modal-inicio-sesion',
   templateUrl: './modal-inicio-sesion.component.html',
@@ -25,7 +26,7 @@ export class ModalInicioSesionComponent implements OnInit {
     private authService: AuthService, private router: Router) { 
     this.form= this.formBuilder.group({
       password:['',[Validators.required]],
-      email:['', [Validators.required, Validators.email]],
+      nombreUsuario:['', [Validators.required]],
    })
   }
 
@@ -47,9 +48,11 @@ export class ModalInicioSesionComponent implements OnInit {
       this.tokenService.setAuthorities(data.authorities);
       this.roles = data.authorities;
       this.router.navigate([''])
+      window.location.reload();
     }, err =>{
       this.isLogged = false;
       this.isLogginFail = true;
+      alert("¡Usuario y/o contraseña incorrectos!")
       this.errMsj = err.error.mensaje;
       console.log(this.errMsj);
     })
@@ -60,7 +63,7 @@ export class ModalInicioSesionComponent implements OnInit {
         if (this.form.valid){
           // Llamamos a nuestro servicio para enviar los datos al servidor
           // También podríamos ejecutar alguna lógica extra
-          alert("¡Inicio de Sesión Exitoso!")
+          //alert("¡Inicio de Sesión Exitoso!")
         }else{
           // Corremos todas las validaciones para que se ejecuten los mensajes de error en el template     
           this.form.markAllAsTouched(); 
@@ -72,15 +75,11 @@ export class ModalInicioSesionComponent implements OnInit {
     return this.form.get("password");
   }
  
-  get Mail(){
-   return this.form.get("email");
+  get NombreUsuario(){
+   return this.form.get("nombreUsuario");
   }
 
   get PasswordValid(){
     return this.Password?.touched && !this.Password?.valid;
-  }
-
-  get MailValid() {
-    return false
   }
 }
