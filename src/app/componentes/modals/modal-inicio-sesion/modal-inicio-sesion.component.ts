@@ -16,7 +16,7 @@ export class ModalInicioSesionComponent implements OnInit {
   isLogged = false;
   isLogginFail=false;
   loginUsuario!: LoginUsuario;
-  nombreUsuario!: string;
+  email!: string;
   password!: string;
   roles: string[] = [];
   errMsj!: string;
@@ -26,7 +26,7 @@ export class ModalInicioSesionComponent implements OnInit {
     private authService: AuthService, private router: Router) { 
     this.form= this.formBuilder.group({
       password:['',[Validators.required]],
-      nombreUsuario:['', [Validators.required]],
+      email:['', [Validators.required, Validators.email]],
    })
   }
 
@@ -39,12 +39,12 @@ export class ModalInicioSesionComponent implements OnInit {
   }
 
   onLogin(event: Event): void{
-    this.loginUsuario = new LoginUsuario(this.nombreUsuario, this.password);
+    this.loginUsuario = new LoginUsuario(this.email, this.password);
     this.authService.login(this.loginUsuario).subscribe(data =>{
       this.isLogged = true;
       this.isLogginFail = false;
       this.tokenService.setToken(data.token);
-      this.tokenService.setUserName(data.nombreUsuario);
+      this.tokenService.setUserName(data.email);
       this.tokenService.setAuthorities(data.authorities);
       this.roles = data.authorities;
       this.router.navigate([''])
@@ -52,7 +52,7 @@ export class ModalInicioSesionComponent implements OnInit {
     }, err =>{
       this.isLogged = false;
       this.isLogginFail = true;
-      alert("¡Usuario y/o contraseña incorrectos!")
+      alert("¡Email y/o contraseña incorrectos!")
       this.errMsj = err.error.mensaje;
       console.log(this.errMsj);
     })
@@ -68,18 +68,25 @@ export class ModalInicioSesionComponent implements OnInit {
           // Corremos todas las validaciones para que se ejecuten los mensajes de error en el template     
           this.form.markAllAsTouched(); 
         }
+  }
 
+  limpiar(): void{
+    this.form.reset();
   }
 
   get Password(){
     return this.form.get("password");
   }
  
-  get NombreUsuario(){
-   return this.form.get("nombreUsuario");
-  }
+  get Email(){
+    return this.form.get("email");
+   }
 
   get PasswordValid(){
     return this.Password?.touched && !this.Password?.valid;
+  }
+
+  get EmailValid() {
+    return false
   }
 }

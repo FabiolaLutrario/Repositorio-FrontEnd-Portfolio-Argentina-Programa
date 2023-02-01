@@ -1,5 +1,4 @@
 import { Component, OnInit } from '@angular/core';
-import { PortfolioService } from 'src/app/servicios/portfolio.service';
 
 @Component({
   selector: 'app-idiomas',
@@ -9,12 +8,9 @@ import { PortfolioService } from 'src/app/servicios/portfolio.service';
 export class IdiomasComponent implements OnInit {
   idiomas:any=[];
 
-  constructor(private datosPortfolio:PortfolioService) { }
+  constructor() { }
 
   ngOnInit(): void {
-    this.datosPortfolio.obtenerDatos().subscribe(data =>{
-      this.idiomas=data.idiomas;
-    })
   }
 
 }

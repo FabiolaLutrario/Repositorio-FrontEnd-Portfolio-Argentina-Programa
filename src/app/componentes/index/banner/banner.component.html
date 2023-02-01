@@ -1,3 +1,10 @@
 <div class="banner" style="position:relative">
-    <img [src]="miBanner.banner" class="d-block w-100" alt="...">
+    <img [src]="banner" class="d-block w-100" alt="...">
+
+        <!-- Button editar banner -->
+        <button type="button" id="botonBanner" style="display:none; position:absolute; margin-top:2rem; right: 3rem;"
+        class="btn btn-success rounded-circle btn-sm" *ngIf="isLogged">
+        <i class="fa-solid fa-pen">
+        </i>
+    </button>
 </div>

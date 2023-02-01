@@ -1,0 +1,131 @@
+<div class="container">
+    <div class="row">
+        <div>
+            <div>
+                <h4 id="newUser">Crear Nuevo Usuario</h4>
+            </div>
+
+            <form [formGroup]="form" (ngSubmit)="onEnviar($event)" novalidate #f="ngForm" name="newUserFormAdd">
+                <div class="form-group">
+                    <div class="p-3 mb-2 bg-primary-subtle text-emphasis-primary">
+                        <div>
+                            <h5 style="text-align:left" class="form-label" for="cargo">Nombre:</h5>
+                        </div>
+                        <div class="form-group mb-3">
+                            <input class="form-control" formControlName="nombre" type="text" id="nombre" name="nombre"
+                                [(ngModel)]="nombre" style="box-shadow: 0 0 0px 1000px #ffffff inset;"
+                                placeholder="Ingrese el nombre">
+                        </div>
+                        <div *ngIf="Nombre?.errors  && Nombre?.touched">
+                            <p *ngIf="Nombre?.hasError('required')"
+                                class="alert alert-danger">
+                                El nombre es requerido.
+                            </p>
+                        </div>
+                    </div>
+
+                    <div class="p-3 mb-2 bg-primary-subtle text-emphasis-primary">
+                        <div>
+                            <h5 style="text-align:left" class="form-label" for="cargo">Apellido:</h5>
+                        </div>
+                        <div class="form-group mb-3">
+                            <input class="form-control" formControlName="apellido" type="text" id="apellido" name="apellido"
+                                [(ngModel)]="apellido" style="box-shadow: 0 0 0px 1000px #ffffff inset;"
+                                placeholder="Ingrese el apellido">
+                        </div>
+                        <div *ngIf="Apellido?.errors  && Apellido?.touched">
+                            <p *ngIf="Apellido?.hasError('required')"
+                                class="alert alert-danger">
+                                El apellido es requerido.
+                            </p>
+                        </div>
+                    </div>
+
+                    <div class="form-group mb-3 p-3 mb-2 bg-primary-subtle text-emphasis-primary">
+                        <h5 style="text-align:left" class="form-label" for="email">Email:</h5>
+                        <input class="form-control" formControlName="email" type="text" id="email" name="email"
+                            [(ngModel)]="email" style="box-shadow: 0 0 0px 1000px #ffffff inset;"
+                            placeholder="Ingrese el email">
+                    </div>
+                    <div *ngIf="Email?.errors  && Email?.touched">
+                        <p *ngIf="Email?.hasError('required')" class="alert alert-danger">
+                            El email es requerido.
+                        </p>
+                        <p *ngIf="Email?.hasError('email')" class="alert alert-danger">
+                            El formato del email debe ser válido.
+                        </p>
+                    </div>
+
+                    <div class="form-group mb-3 p-3 mb-2 bg-primary-subtle text-emphasis-primary">
+                        <h5 style="text-align:left" class="form-label" for="password">Contraseña:</h5>
+                        <input class="form-control" formControlName="password" type="password" id="password"
+                            name="password" [(ngModel)]="password" style="box-shadow: 0 0 0px 1000px #ffffff inset;"
+                            placeholder="Ingrese la contraseña">
+                    </div>
+                    <div *ngIf="Password?.errors  && Password?.touched">
+                        <p *ngIf="Password?.hasError('required')"
+                            class="alert alert-danger">
+                            La contraseña es requerida.
+                        </p>
+                        <p *ngIf="Password?.hasError('minlength')" class="alert alert-danger">
+                            La contraseña debe ser de 6 o más caracteres.
+                        </p>
+                    </div>
+
+                    <div class="form-group mb-3 p-3 mb-2 bg-primary-subtle text-emphasis-primary">
+                        <h5 style="text-align:left" class="form-label" for="confirmPassword">Repetir Contraseña:</h5>
+                        <input class="form-control" formControlName="confirmPassword" type="password"
+                            id="confirmPassword" name="confirmPassword"
+                            style="box-shadow: 0 0 0px 1000px #ffffff inset;"
+                            placeholder="Vuelva a escribir la contraseña">
+                    </div>
+                    <div *ngIf="ConfirmPassword?.errors  && ConfirmPassword?.touched">
+                        <p *ngIf="ConfirmPassword?.hasError('required')"
+                            class="alert alert-danger">
+                            Debe confirmar la contraseña.
+                        </p>
+                        <p *ngIf="ConfirmPassword?.hasError('mustMatch')" class="alert alert-danger">
+                            Las contraseñas deben coincidir.
+                        </p>
+                    </div>
+
+                    <div class="p-3 mb-2 bg-primary-subtle text-emphasis-primary">
+                        <div>
+                            <h5 style="text-align:left" class="form-label" for="cargo">Titulo:</h5>
+                        </div>
+                        <div class="form-group mb-3">
+                            <input class="form-control" formControlName="titulo" type="text" id="titulo" name="titulo"
+                                [(ngModel)]="titulo" style="box-shadow: 0 0 0px 1000px #ffffff inset;"
+                                placeholder="Ingrese el titulo">
+                        </div>
+                        <div *ngIf="Titulo?.errors  && Titulo?.touched">
+                            <p *ngIf="Titulo?.hasError('required')"
+                                class="alert alert-danger">
+                                El titulo es requerido.
+                            </p>
+                        </div>
+                    </div>
+
+                    <div class="form-group mb-3 p-3 mb-2 bg-primary-subtle text-emphasis-primary">
+                        <h5 style="text-align:left" class="form-label" for="roles">Rol:</h5>
+                        <select [(ngModel)]='ngDropdown' class="form-select" id="roles" formControlName="roles"
+                            name="roles">
+                            <option *ngFor="let opt of ngOptions" [selected]="opt === ngDropdown" [value]="opt">
+                                {{ opt }}
+                            </option>
+                        </select>
+                    </div>
+                    <div *ngIf="Roles?.errors  && Roles?.touched">
+                        <p *ngIf="Roles?.hasError('required')" class="alert alert-danger">
+                            Debe seleccionar algún rol.
+                        </p>
+                    </div>
+
+                    <div>
+                        <button type="submit" class="btn btn-primary">Guardar</button>
+                    </div>
+                </div>
+            </form>
+        </div>
+    </div>
+</div>

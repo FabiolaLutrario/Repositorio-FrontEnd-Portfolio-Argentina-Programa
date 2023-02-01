@@ -1,14 +1,14 @@
 import { HttpClient } from '@angular/common/http';
 import { Injectable } from '@angular/core';
 import { Observable } from 'rxjs';
-import { Experiencia } from '../model/experiencia';
+import { Experiencia } from '../model/experiencia.model';
 
 @Injectable({
   providedIn: 'root'
 })
 export class ExperienciaService {
 
-  expURL = 'http://localhost:8080/expLaboral'
+  expURL = 'http://localhost:8080/expLaboral/'
 
   constructor(private httpClient: HttpClient) { }
 

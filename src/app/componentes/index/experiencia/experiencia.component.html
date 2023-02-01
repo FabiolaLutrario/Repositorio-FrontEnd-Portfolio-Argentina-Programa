@@ -1,9 +1,22 @@
 <section id="experiencia" class="rounded">
     <div class="container-fluid">
         <div class="row g-0">
-            <div class="col-12">
+            <div class="col-11">
                 <h3 style="padding-top: 1rem;">Experiencia Laboral</h3>
             </div>
+
+            <div class="col-1 text-end" style="padding-top: 1rem; padding-right: 1rem;">
+
+                <!-- Button agregar experiencia -->
+                 <button id="botonAgregarExperiencia"
+                    class="btn btn-success rounded-circle btn-sm" *ngIf="isLogged"
+                    routerLink="/addExp">
+                    <i class="fa-solid fa-plus">
+                    </i>
+                </button>
+
+            </div>
+
         </div>
 
         <div class="card mb-3">
@@ -14,10 +27,12 @@
                 </div>
                 <div class="col-10">
                     <div style="padding: 0;" class="card-body">
-                        <h5 id="experienciaCargo" class="card-title">{{Experiencia.cargo}}</h5>
+                        <h4 id="experienciaCargo" class="card-title">{{Experiencia.cargo}}</h4>
                         <p id="experienciaEmpresa" >{{Experiencia.empresa}}</p>
-                        <p id="experienciaPeriodo" class="card-text"><small class="text-muted">{{Experiencia.fechaInicio}} - 
-                            {{Experiencia.fechaFin}}
+                        <p id="experienciaPeriodo" class="card-text"><small class="text-muted">
+                            {{Experiencia.fechaInicio | date:"dd-MM-yyyy"}} | 
+                            {{Experiencia.fechaFin | date:"dd-MM-yyyy"}} 
+                            <p *ngIf="Experiencia.fechaFin==null" style="display: inline-block;">Actualidad</p>
                         </small></p>
                         <p id="experienciaDescripcion" class="card-text">{{Experiencia.descripcion}}
                         </p>
@@ -25,7 +40,47 @@
                 </div>
 
                 <div class="col-1 text-end">
-
+                    
+                    <!-- Button editar experiencia -->
+                     <button type="button" id="botonEditarExperiencia"
+                        class="btn btn-success rounded-circle btn-sm" *ngIf="isLogged"
+                        routerLink="/editExp/{{Experiencia.id}}">
+                        <i class="fa-solid fa-pen">
+                        </i>
+                    </button>
+                
+                
+                    <!-- Button eliminar experiencia -->
+                    <button id="botonEliminarExperiencia" type="button"
+                    class="btn btn-success rounded-circle btn-sm" *ngIf="isLogged">
+                    <i class="fa-solid fa-trash-can"
+                    data-bs-toggle="modal" data-bs-target="#eliminarExperienciaModal">
+                    </i>
+                </button>
+  
+  <!-- Modal eliminar experiencia -->
+  <div class="modal fade" id="eliminarExperienciaModal" tabindex="-1" aria-labelledby="eliminarExperienciaModalLabel" aria-hidden="true">
+    <div class="modal-dialog">
+      <div class="modal-content">
+        <div class="modal-header">
+          <h1 class="modal-title fs-5" id="eliminarExperienciaModalLabel">Eliminar Experiencia</h1>
+          <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+        </div>
+        <div class="modal-body" style="text-align: left; display: block;">
+            ¿Está seguro de eliminar?
+        </div>
+        <div class="modal-footer">
+          <button type="button" data-bs-dismiss="modal" (click)="delete(Experiencia.id)" 
+          class="btn btn-primary">
+            Eliminar
+        </button>
+        <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">
+            Cancelar
+        </button>
+        </div>
+      </div>
+    </div>
+  </div>
                 </div>
             </div>
         </div>

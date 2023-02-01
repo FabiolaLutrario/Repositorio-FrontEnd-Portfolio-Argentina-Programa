@@ -3,6 +3,7 @@
 #experienciaPeriodo,
 #experienciaDescripcion{
     margin-bottom: 0.2rem;
+    text-align: justify;
 }
 
 .card-body{
