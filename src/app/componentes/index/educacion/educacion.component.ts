@@ -19,7 +19,6 @@ export class EducacionComponent implements OnInit {
   isLogged=false;
 
   ngOnInit(): void {
-    
     this.cargarEducacion();
     if(this.tokenService.getToken()){
       this.isLogged = true;
@@ -29,8 +28,8 @@ export class EducacionComponent implements OnInit {
   }
 
   cargarEducacion(): void{
-    this.educacionService.lista().subscribe(
-      data => {this.estudios=data;})
+    this.usuarioService.getUsuario().subscribe(
+      data => {this.estudios=data.estudios;})
   }
 
   delete(id?: number){

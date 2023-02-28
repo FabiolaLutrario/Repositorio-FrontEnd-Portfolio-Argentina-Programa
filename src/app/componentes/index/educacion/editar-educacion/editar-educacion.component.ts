@@ -29,7 +29,8 @@ export class EditarEducacionComponent implements OnInit {
         centroEducativo:['', [Validators.required]],
         seEncuentraCursando:[''],
         fechaInicio:['', [Validators.required]],
-        fechaFin:['', [Validators.required]],
+        // fechaFin:['', [Validators.required]],
+        fechaFin:[''],
         descripcion:[''],
      }) 
     }
@@ -74,8 +75,7 @@ export class EditarEducacionComponent implements OnInit {
       }
     )
   }
-
-
+  
     get Titulo(){
     return this.form.get("titulo");
    }

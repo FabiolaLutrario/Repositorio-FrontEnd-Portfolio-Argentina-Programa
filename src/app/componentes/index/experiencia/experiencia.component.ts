@@ -3,7 +3,6 @@ import { Router } from '@angular/router';
 import { Experiencia } from 'src/app/model/experiencia.model';
 import { ExperienciaService } from 'src/app/servicios/experiencia.service';
 import { TokenService } from 'src/app/servicios/token.service';
-import { Usuario } from 'src/app/model/usuario.model';
 import { UsuarioService } from 'src/app/servicios/usuario.service';
 
 @Component({
@@ -16,7 +15,7 @@ export class ExperienciaComponent implements OnInit {
   experiencias:Experiencia[]=[];
 
   constructor(private router: Router, private experienciaService: ExperienciaService, 
-    public usuarioService: UsuarioService, private tokenService: TokenService) { }
+    private usuarioService: UsuarioService, private tokenService: TokenService) { }
 
   isLogged=false;
 

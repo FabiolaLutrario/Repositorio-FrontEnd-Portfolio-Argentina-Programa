@@ -1,0 +1,68 @@
+<div class="container" *ngIf="personaIdioma">
+    <div class="row">
+        <div>
+            <div>
+            <h4 id="editarIdiomaLabel">Editar
+                Idioma</h4>
+        </div>
+
+        <form [formGroup]="form" (ngSubmit)="onEnviar($event)" novalidate #f="ngForm"
+        name="idiomaFormEdit">
+        <div class="form-group">
+          <div class="p-3 mb-2 bg-primary-subtle text-emphasis-primary">
+            <div class="form-group mb-3 p-3 mb-2 bg-primary-subtle text-emphasis-primary">
+                <h5 style="text-align:left" class="form-label" for="idiomaId">Idioma:</h5>
+                <select [(ngModel)]='personaIdioma.idiomaId' class="form-select" id="idiomaId" formControlName="idiomaId"
+                    name="idiomaId">
+                    <!-- <option [ngValue]="undefined" [disabled]="true">Choose Type</option> -->
+<!--                     <option value="undefined" disabled selected>
+                      Seleccione un idioma...
+                    </option> -->
+                    <option *ngFor="let Idioma of idiomas" [selected]="" [value]="Idioma.id">
+                        {{ Idioma.idioma }}
+                    </option>
+                </select>
+            </div> 
+            <div *ngIf="IdiomaId?.errors  && IdiomaId?.touched">
+                <p *ngIf="IdiomaId?.hasError('required')" style="text-align: center;" class="alert alert-danger">
+                  El idioma es requerido.
+                </p>
+              </div>
+          </div>
+
+          <div class="p-3 mb-2 bg-primary-subtle text-emphasis-primary">
+
+             <div class="form-group mb-3 p-3 mb-2 bg-primary-subtle text-emphasis-primary">
+                <h5 style="text-align:left" class="form-label" for="porcenatjeId">Porcentaje:</h5>
+                <select [(ngModel)]='personaIdioma.porcentajeId' class="form-select" id="porcentajeId" formControlName="porcentajeId"
+                    name="porcentajeId">
+                    <!-- <option [ngValue]="undefined" [disabled]="true">Choose Type</option> -->
+<!--                     <option value="undefined" disabled selected>
+                      Seleccione un porcentaje...
+                    </option> -->
+                    <option *ngFor="let Porcentaje of porcentajes" [selected]="" [value]="Porcentaje.id">
+                        {{ Porcentaje.id }} %
+                    </option>
+                </select>
+            </div> 
+
+          <div *ngIf="PorcentajeId?.errors  && PorcentajeId?.touched">
+              <p *ngIf="PorcentajeId?.hasError('required')" style="text-align: center;" class="alert alert-danger">
+                El porcentaje es requerido.
+              </p>
+            </div>
+        </div>
+
+        <div style="display: inline-flex; flex-direction: row;">
+            <button type="submit" class="btn btn-primary">Guardar</button>
+        </div>
+        <div style="display: inline-flex; flex-direction: row; margin-left: 4px;">
+          <button type="button" class="btn btn-secondary" routerLink="/index">
+            Volver
+        </button>
+      </div>
+      </div>
+    </form>
+        </div>
+        </div>
+        </div>

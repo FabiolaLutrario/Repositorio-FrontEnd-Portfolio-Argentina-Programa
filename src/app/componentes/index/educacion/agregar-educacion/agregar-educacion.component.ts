@@ -63,10 +63,6 @@ onCreate():void{
     )
   }
 
-  limpiar(): void{
-    this.form.reset();
-  }
-
   get Titulo(){
     return this.form.get("titulo");
    }

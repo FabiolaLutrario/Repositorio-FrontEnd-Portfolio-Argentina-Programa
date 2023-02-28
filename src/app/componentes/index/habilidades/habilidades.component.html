@@ -2,27 +2,80 @@
     <div class="container-fluid">
 
         <div class="row g-0">
-            <div class="col-12">
+            <div class="col-11">
                 <h3 style="padding-top: 1rem;">Habilidades</h3>
+            </div>
+
+            <div class="col-1 text-end" style="padding-top: 1rem; padding-right: 1rem;">
+
+                <!-- Button agregar habilidad -->
+                <button id="botonAgregarHabilidad" class="btn btn-success rounded-circle btn-sm" *ngIf="isLogged"
+                    routerLink="/addHabilidad">
+                    <i class="fa-solid fa-plus">
+                    </i>
+                </button>
             </div>
         </div>
 
         <div class="card mb-3">
-            <div *ngFor="let habilidad of habilidades" id="habilidad" class="row g-0">
-
+            <!--             Para poner borde a las habilidades poner el {id="bordeTarjetas"}
+            en el div de abajo -->
+            <div *ngFor="let PersonaHabilidad of habilidades" class="row g-0">
                 <div class="col-11">
-                     <div  class="card-body" style="padding: 0;">
-                        <h5 class="card-title">{{habilidad.habilidad}}</h5>
-                        <div class="progress">
+                    <div class="card-body" style="padding: 0;">
+                        <h5 style="margin-top: 0.5rem;" class="card-title">{{PersonaHabilidad.habilidad}}</h5>
+                        <div style="margin-bottom: 1rem;" class="progress">
                             <div class="progress-bar bg-info" role="progressbar" aria-label="Info example"
-                                [style.width.%]="habilidad.porcentaje" aria-valuenow="habilidad.porcentaje" aria-valuemin="0" aria-valuemax="100">
+                                [style.width.%]="PersonaHabilidad.porcentajeId"
+                                aria-valuenow="PersonaHabilidad.porcentajeId" aria-valuemin="0" aria-valuemax="100">
                             </div>
                         </div>
                     </div>
                 </div>
 
                 <div class="col-1 text-end">
-                    
+
+                    <!-- Button editar habilidad -->
+                    <button type="button" id="botonEditarHabilidad" class="btn btn-success rounded-circle btn-sm"
+                        *ngIf="isLogged" routerLink="/editHabilidad/{{PersonaHabilidad.id}}">
+                        <i class="fa-solid fa-pen">
+                        </i>
+                    </button>
+
+                    <!-- Button eliminar habilidad -->
+                    <button id="botonEliminarHabilidad" type="button" class="btn btn-success rounded-circle btn-sm"
+                        *ngIf="isLogged">
+                        <i class="fa-solid fa-trash-can" data-bs-toggle="modal"
+                            data-bs-target="#eliminarHabilidadModal">
+                        </i>
+                    </button>
+
+                    <!-- Modal eliminar habilidad -->
+                    <div class="modal fade" id="eliminarHabilidadModal" tabindex="-1"
+                        aria-labelledby="eliminarHabilidadModalLabel" aria-hidden="true">
+                        <div class="modal-dialog">
+                            <div class="modal-content">
+                                <div class="modal-header">
+                                    <h1 class="modal-title fs-5" id="eliminarHabilidadModalLabel">Eliminar Habilidad
+                                    </h1>
+                                    <button type="button" class="btn-close" data-bs-dismiss="modal"
+                                        aria-label="Close"></button>
+                                </div>
+                                <div class="modal-body" style="text-align: left; display: block;">
+                                    ¿Está seguro de eliminar?
+                                </div>
+                                <div class="modal-footer">
+                                    <button type="button" data-bs-dismiss="modal" (click)="delete(PersonaHabilidad.id)"
+                                        class="btn btn-primary">
+                                        Eliminar
+                                    </button>
+                                    <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">
+                                        Cancelar
+                                    </button>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
                 </div>
             </div>
         </div>

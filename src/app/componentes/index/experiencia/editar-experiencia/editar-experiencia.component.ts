@@ -28,7 +28,8 @@ export class EditarExperienciaComponent implements OnInit {
         empresa:['', [Validators.required]],
         esTrabajoActual:[''],
         fechaInicio:['', [Validators.required]],
-        fechaFin:['', [Validators.required]],
+        // fechaFin:['', [Validators.required]],
+        fechaFin:[''],
         descripcion:[''],
      }) 
     }
@@ -73,7 +74,6 @@ export class EditarExperienciaComponent implements OnInit {
       }
     )
   }
-
 
     get Cargo(){
     return this.form.get("cargo");

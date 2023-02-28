@@ -1,0 +1,63 @@
+<div class="container" *ngIf="personaHabilidad">
+    <div class="row">
+        <div>
+            <div>
+            <h4 id="editarHabilidadLabel">Editar
+                Habilidad</h4>
+        </div>
+
+        <form [formGroup]="form" (ngSubmit)="onEnviar($event)" novalidate #f="ngForm"
+        name="habilidadFormEdit">
+        <div class="form-group">
+          <div class="p-3 mb-2 bg-primary-subtle text-emphasis-primary">
+              <div>
+                <h5 style="text-align:left" class="form-label" for="habilidad">Habilidad:</h5>
+                </div>
+                <div class="form-group mb-3">
+                <input class="form-control" formControlName="habilidad" type="text" id="habilidad" name="habilidad" 
+                [(ngModel)]="personaHabilidad.habilidad" style="box-shadow: 0 0 0px 1000px #ffffff inset;" placeholder="Ingrese la habilidad"
+                autofocus>
+            </div>
+            <div *ngIf="Habilidad?.errors  && Habilidad?.touched">
+                <p *ngIf="Habilidad?.hasError('required')" style="text-align: center;" class="alert alert-danger">
+                  La habilidad es requerida.
+                </p>
+              </div>
+          </div>
+
+          <div class="p-3 mb-2 bg-primary-subtle text-emphasis-primary">
+
+             <div class="form-group mb-3 p-3 mb-2 bg-primary-subtle text-emphasis-primary">
+                <h5 style="text-align:left" class="form-label" for="porcenatjeId">Porcentaje:</h5>
+                <select [(ngModel)]='personaHabilidad.porcentajeId' class="form-select" id="porcentajeId" formControlName="porcentajeId"
+                    name="porcentajeId">
+                    <!-- <option [ngValue]="undefined" [disabled]="true">Choose Type</option> -->
+<!--                     <option value="undefined" disabled selected>
+                      Choose Months Commitment...
+                    </option> -->
+                    <option *ngFor="let Porcentaje of porcentajes" [selected]="" [value]="Porcentaje.id">
+                        {{ Porcentaje.id }} %
+                    </option>
+                </select>
+            </div> 
+
+          <div *ngIf="PorcentajeId?.errors  && PorcentajeId?.touched">
+              <p *ngIf="PorcentajeId?.hasError('required')" style="text-align: center;" class="alert alert-danger">
+                El porcentaje es requerido.
+              </p>
+            </div>
+        </div>
+
+        <div style="display: inline-flex; flex-direction: row;">
+            <button type="submit" class="btn btn-primary">Guardar</button>
+        </div>
+        <div style="display: inline-flex; flex-direction: row; margin-left: 4px;">
+          <button type="button" class="btn btn-secondary" routerLink="/index">
+            Volver
+        </button>
+      </div>
+      </div>
+    </form>
+        </div>
+        </div>
+        </div>

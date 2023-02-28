@@ -23,6 +23,14 @@ import { AgregarExperienciaComponent } from './componentes/index/experiencia/agr
 import { EditarExperienciaComponent } from './componentes/index/experiencia/editar-experiencia/editar-experiencia.component';
 import { AgregarEducacionComponent } from './componentes/index/educacion/agregar-educacion/agregar-educacion.component';
 import { EditarEducacionComponent } from './componentes/index/educacion/editar-educacion/editar-educacion.component';
+import { EditarHabilidadComponent } from './componentes/index/habilidades/editar-habilidad/editar-habilidad.component';
+import { AgregarHabilidadComponent } from './componentes/index/habilidades/agregar-habilidad/agregar-habilidad.component';
+import { AgregarIdiomaComponent } from './componentes/index/idiomas/agregar-idioma/agregar-idioma.component';
+import { EditarIdiomaComponent } from './componentes/index/idiomas/editar-idioma/editar-idioma.component';
+import { ModalEditarNombreYApellidoComponent } from './componentes/modals/modal-editar-nombre-y-apellido/modal-editar-nombre-y-apellido.component';
+import { ModalEditarTituloComponent } from './componentes/modals/modal-editar-titulo/modal-editar-titulo.component';
+import { ModalEditarFotoComponent } from './componentes/modals/modal-editar-foto/modal-editar-foto.component';
+import { ModalEditarBannerComponent } from './componentes/modals/modal-editar-banner/modal-editar-banner.component';
 @NgModule({
   declarations: [
     AppComponent,
@@ -43,7 +51,15 @@ import { EditarEducacionComponent } from './componentes/index/educacion/editar-e
     AgregarExperienciaComponent,
     EditarExperienciaComponent,
     AgregarEducacionComponent,
-    EditarEducacionComponent
+    EditarEducacionComponent,
+    EditarHabilidadComponent,
+    AgregarHabilidadComponent,
+    AgregarIdiomaComponent,
+    EditarIdiomaComponent,
+    ModalEditarNombreYApellidoComponent,
+    ModalEditarTituloComponent,
+    ModalEditarFotoComponent,
+    ModalEditarBannerComponent
   ],
   imports: [
     BrowserModule,

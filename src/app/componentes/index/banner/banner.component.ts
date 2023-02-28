@@ -1,7 +1,6 @@
 import { Component, OnInit } from '@angular/core';
 import { Router } from '@angular/router';
 import { TokenService } from 'src/app/servicios/token.service';
-import { Usuario } from 'src/app/model/usuario.model';
 import { UsuarioService } from 'src/app/servicios/usuario.service';
 
 
@@ -11,11 +10,10 @@ import { UsuarioService } from 'src/app/servicios/usuario.service';
   styleUrls: ['./banner.component.css']
 })
 export class BannerComponent implements OnInit {
-  banner: string;
+  banner: string="";
 
-  constructor(private router: Router, private usuarioService: UsuarioService, private tokenService: TokenService) { 
-    
-  }
+  constructor(private router: Router, private usuarioService: UsuarioService, 
+    private tokenService: TokenService) { }
 
   isLogged=false;
 

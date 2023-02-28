@@ -1,3 +1,9 @@
 img.img-fluid.rounded-circle.border {
     min-width: 95px;
 }
+
+@media(max-width:815px) {
+    #botonEditarFotoPerfil {
+        top: 30% !important;
+    }
+}

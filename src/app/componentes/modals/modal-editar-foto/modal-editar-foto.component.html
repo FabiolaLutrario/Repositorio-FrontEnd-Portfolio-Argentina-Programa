@@ -1,0 +1,29 @@
+<div class="modal fade" id="editarFotoPerfilModal" tabindex="-1" aria-labelledby="editarFotoPerfilModalLabel"
+    aria-hidden="true">
+    <form [formGroup]="form" (ngSubmit)="onEnviar()" novalidate #f="ngForm" name="bannerFormEdit">
+        <div class="modal-dialog">
+            <div class="modal-content">
+                <div class="modal-header">
+                    <h4 class="modal-title" id="editarFotoPerfilModalLabel">Editar foto de Perfil</h4>
+                    <button type="button" class="btn-close" data-bs-dismiss="modal" (click)="limpiar()"
+                        aria-label="Close"></button>
+                </div>
+
+                <div class="modal-body">
+                    <div class="mb-3">
+                        <h5 style="text-align:left" class="form-label">Seleccione una foto:</h5>
+                        <input class="form-control" type="file" id="foto" formControlName="foto" name="foto"
+                            [(ngModel)]="foto">
+                    </div>
+
+                </div>
+                <div class="modal-footer">
+                    <button type="submit" data-bs-dismiss="modal" class="btn btn-primary">Actualizar</button>
+                    <button type="button" class="btn btn-secondary" data-bs-dismiss="modal" (click)="limpiar()">
+                        Cerrar
+                    </button>
+                </div>
+            </div>
+        </div>
+    </form>
+</div>

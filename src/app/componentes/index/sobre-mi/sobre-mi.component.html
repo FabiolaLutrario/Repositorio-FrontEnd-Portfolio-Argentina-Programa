@@ -2,17 +2,54 @@
     <div class="container-fluid">
         <div class="row">
             <div class="col-2 text-center" style="margin-top:-3rem; position:relative;min-width:90px;">
-                <img [src]=""
-                    class="img-fluid rounded-circle border" width="100%" alt="fabiola lutrario"
+
+                <!-- Button editar foto perfil modal -->
+                <button id="botonEditarFotoPerfil" type="button" data-bs-toggle="modal"
+                    data-bs-target="#editarFotoPerfilModal" style="position:absolute; top:70%; left:70%;"
+                    class="btn btn-success rounded-circle btn-sm">
+                    <i class="fa-solid fa-pen">
+                    </i>
+                </button>
+
+                <!-- Modal -->
+                <app-modal-editar-foto>
+                </app-modal-editar-foto>
+
+<!--                 <img [src]="usuario.foto" class="img-fluid rounded-circle border" width="100%" alt="fabiola lutrario"
+                    title="..."> -->
+                    <img src="assets/IMG/fotoPerfil.png"
+                    class="img-fluid rounded-circle border border-3" width="100%" alt="fabiola lutrario"
                     title="...">
             </div>
 
             <div class="col-10 mt-3">
                 <h2 id="text-about-me">{{usuario.nombre}} {{usuario.apellido}}
+
+                    <!-- Boton editar nombre y apellido modal -->
+                    <button type="button" id="botonEditarNombreYApellido" data-bs-toggle="modal"
+                        data-bs-target="#editarNombreYApellidoModal" style="right: 3rem;"
+                        class="btn btn-success rounded-circle btn-sm" *ngIf="isLogged">
+                        <i class="fa-solid fa-pen"></i>
+                    </button>
                 </h2>
 
+                <!-- Modal -->
+                <app-modal-editar-nombre-y-apellido>
+                </app-modal-editar-nombre-y-apellido>
+
                 <h4>{{usuario.titulo}}
+
+                    <!-- Boton editar titulo modal -->
+                    <button id="botonEditarTitulo" type="button" data-bs-toggle="modal" *ngIf="isLogged"
+                        data-bs-target="#editarTituloModal" style="right: 3rem;"
+                        class="btn btn-success rounded-circle btn-sm"><i class="fa-solid fa-pen">
+                        </i>
+                    </button>
                 </h4>
+
+                <!-- Modal -->
+                <app-modal-editar-titulo>
+                </app-modal-editar-titulo>
             </div>
         </div>
     </div>

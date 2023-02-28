@@ -64,10 +64,6 @@ onCreate():void{
     )
   }
 
-  limpiar(): void{
-    this.form.reset();
-  }
-
   get Cargo(){
     return this.form.get("cargo");
    }
