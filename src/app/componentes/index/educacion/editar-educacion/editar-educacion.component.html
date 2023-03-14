@@ -1,92 +1,94 @@
 <div class="container" *ngIf="educacion">
-    <div class="row">
-        <div>
-            <div>
-            <h4 id="editarEducacionLabel">Editar
-                Educacion</h4>
-        </div>
-  
-        <form [formGroup]="form" (ngSubmit)="onEnviar($event)" novalidate #f="ngForm"
-        name="educacionFormEdit">
+  <div class="row">
+    <div>
+      <div>
+        <h4 id="editarEducacionLabel">Editar
+          Educacion</h4>
+      </div>
+
+      <form [formGroup]="form" (ngSubmit)="onEnviar($event)" novalidate #f="ngForm" name="educacionFormEdit">
         <div class="form-group">
           <div class="p-3 mb-2 bg-primary-subtle text-emphasis-primary">
-              <div>
-                <h5 style="text-align:left" class="form-label" for="titulo">Título:</h5>
-                </div>
-                <div class="form-group mb-3">
-                <input class="form-control" formControlName="titulo" type="text" id="titulo" name="titulo" 
-                [(ngModel)]="educacion.titulo" style="box-shadow: 0 0 0px 1000px #ffffff inset;"
-                autofocus>
+            <div>
+              <h5 style="text-align:left" class="form-label" for="titulo">Título:</h5>
+            </div>
+            <div class="form-group mb-3">
+              <input class="form-control" formControlName="titulo" type="text" id="titulo" name="titulo"
+                [(ngModel)]="educacion.titulo" style="box-shadow: 0 0 0px 1000px #ffffff inset;" autofocus>
             </div>
             <div *ngIf="Titulo?.errors  && Titulo?.touched">
-                <p *ngIf="Titulo?.hasError('required')" style="text-align: center;" class="alert alert-danger">
-                  El título es requerido.
-                </p>
-              </div>
+              <p *ngIf="Titulo?.hasError('required')" style="text-align: center;" class="alert alert-danger">
+                El título es requerido.
+              </p>
+            </div>
           </div>
-  
-            <div class="form-group mb-3 p-3 mb-2 bg-primary-subtle text-emphasis-primary">
-                <h5 style="text-align:left" class="form-label" for="centroEducativo">Centro Educativo:</h5>
-                <input class="form-control" formControlName="centroEducativo" type="text" id="centroEducativo" name="centroEducativo" 
-                [(ngModel)]="educacion.centroEducativo" style="box-shadow: 0 0 0px 1000px #ffffff inset;">
+
+          <div class="form-group mb-3 p-3 mb-2 bg-primary-subtle text-emphasis-primary">
+            <h5 style="text-align:left" class="form-label" for="centroEducativo">Centro Educativo:</h5>
+            <input class="form-control" formControlName="centroEducativo" type="text" id="centroEducativo"
+              name="centroEducativo" [(ngModel)]="educacion.centroEducativo"
+              style="box-shadow: 0 0 0px 1000px #ffffff inset;">
+          </div>
+          <div *ngIf="CentroEducativo?.errors  && CentroEducativo?.touched">
+            <p *ngIf="CentroEducativo?.hasError('required')" style="text-align: center;" class="alert alert-danger">
+              El centro educativo es requerido.
+            </p>
+          </div>
+
+          <div class="p-3 mb-2 bg-primary-subtle text-emphasis-primary">
+            <div>
+              <h5 style="text-align:left" class="form-check-label" for="seEncuentraCursando">¿Está cursando actualmente?
+              </h5>
             </div>
-            <div *ngIf="CentroEducativo?.errors  && CentroEducativo?.touched">
-                <p *ngIf="CentroEducativo?.hasError('required')" style="text-align: center;" class="alert alert-danger">
-                  El centro educativo es requerido.
-                </p>
-              </div>
-  
-              <div class="p-3 mb-2 bg-primary-subtle text-emphasis-primary">
-              <div>
-                <h5 style="text-align:left" class="form-check-label" for="seEncuentraCursando">¿Está cursando actualmente?</h5>
-              </div>
             <div class="form-check form-switch">
-                <input class="form-check-input" formControlName="seEncuentraCursando" 
-                type="checkbox" role="switch" id="flexSwitchCheckDefault"
-                id="seEncuentraCursando" name="seEncuentraCursando" [(ngModel)]="educacion.seEncuentraCursando">
-              </div>
-              </div> 
-            <div class="form-group mb-3 p-3 mb-2 bg-primary-subtle text-emphasis-primary">
-                <h5 style="text-align:left" class="form-label" for="fechaInicio">Fecha Inicio:</h5>
-                <input class="form-control" formControlName="fechaInicio" type="date" id="fechaInicio" name="fechaInicio" 
-                [(ngModel)]="educacion.fechaInicio" value="20-04-1000">
+              <input class="form-check-input" formControlName="seEncuentraCursando" type="checkbox" role="switch"
+                id="flexSwitchCheckDefault" id="seEncuentraCursando" name="seEncuentraCursando"
+                [(ngModel)]="educacion.seEncuentraCursando">
             </div>
-            <div *ngIf="FechaInicio?.errors  && FechaInicio?.touched">
-                <p *ngIf="FechaInicio?.hasError('required')" style="text-align: center;" class="alert alert-danger">
-                  La fecha en la que inició a cursar es requerido.
-                </p>
-              </div>
-            <div class="form-group mb-3 p-3 mb-2 bg-primary-subtle text-emphasis-primary" *ngIf="!educacion.seEncuentraCursando">
-                <h5 style="text-align:left" class="form-label" for="fechaFin">Fecha Fin:</h5>
-                <input class="form-control" formControlName="fechaFin" type="date" id="fechaFin" name="fechaFin" 
-                [(ngModel)]="educacion.fechaFin" value="20-04-1000">
-                </div>
-  <!-- 
+          </div>
+          <div class="form-group mb-3 p-3 mb-2 bg-primary-subtle text-emphasis-primary">
+            <h5 style="text-align:left" class="form-label" for="fechaInicio">Fecha Inicio:</h5>
+            <input class="form-control" formControlName="fechaInicio" type="date" id="fechaInicio" name="fechaInicio"
+              [(ngModel)]="educacion.fechaInicio" value="20-04-1000">
+          </div>
+          <div *ngIf="FechaInicio?.errors  && FechaInicio?.touched">
+            <p *ngIf="FechaInicio?.hasError('required')" style="text-align: center;" class="alert alert-danger">
+              La fecha en la que inició a cursar es requerido.
+            </p>
+          </div>
+          <div class="form-group mb-3 p-3 mb-2 bg-primary-subtle text-emphasis-primary"
+            *ngIf="!educacion.seEncuentraCursando">
+            <h5 style="text-align:left" class="form-label" for="fechaFin">Fecha Fin:</h5>
+            <input class="form-control" formControlName="fechaFin" type="date" id="fechaFin" name="fechaFin"
+              [(ngModel)]="educacion.fechaFin" value="20-04-1000">
+          </div>
+          <!-- 
                     Hacer acá una validación donde diga que "Si no se encuentra cursando debe indicar la fecha 
                     en la cual culminó." -->
-  
-            <div class="form-group mb-3 p-3 mb-2 bg-primary-subtle text-emphasis-primary">
-                <h5 style="text-align:left" class="form-label" for="logo">Logo del Centro Educativo (Opcional):</h5>
-                <input class="form-control" formControlName="logo" type="file" id="logo" name="logo" 
-                [(ngModel)]="educacion.logo">
-            </div>
-            <div class="form-group mb-3 p-3 mb-2 bg-primary-subtle text-emphasis-primary">
-                <h5 style="text-align:left" class="form-label" for="descripcion">Descripción (Opcional):</h5>
-                <textarea class="form-control" formControlName="descripcion" aria-label="With textarea" id="descripcion" 
-                name="descripcion" [(ngModel)]="educacion.descripcion" placeholder="Ingrese una breve descripción. (Opcional)"></textarea>
-            </div>
+
+          <div class="form-group mb-3 p-3 mb-2 bg-primary-subtle text-emphasis-primary">
+            <h5 style="text-align:left" class="form-label" for="logo">Logo del Centro Educativo (Opcional):</h5>
+            <input class="form-control" formControlName="logo" type="file" id="logo" name="logo"
+              [(ngModel)]="educacion.logo">
+          </div>
+          <div class="form-group mb-3 p-3 mb-2 bg-primary-subtle text-emphasis-primary">
+            <h5 style="text-align:left" class="form-label" for="descripcion">Descripción (Opcional):</h5>
+            <textarea class="form-control" formControlName="descripcion" aria-label="With textarea" id="descripcion"
+              name="descripcion" [(ngModel)]="educacion.descripcion"
+              placeholder="Ingrese una breve descripción. (Opcional)"></textarea>
+          </div>
         </div>
         <div style="display: inline-flex; flex-direction: row;">
-            <button type="submit" class="btn btn-primary">
-              Actualizar
-            </button>
-            </div>
-            <div style="display: inline-flex; flex-direction: row; margin-left: 4px;">
-            <button type="button" class="btn btn-secondary" routerLink="/index">
-              Volver
+          <button type="submit" class="btn btn-primary">
+            Actualizar
           </button>
         </div>
-    </form>
+        <div style="display: inline-flex; flex-direction: row; margin-left: 4px;">
+          <button type="button" class="btn btn-secondary" routerLink="/index">
+            Volver
+          </button>
         </div>
-        </div>
-        </div>
+      </form>
+    </div>
+  </div>
+</div>

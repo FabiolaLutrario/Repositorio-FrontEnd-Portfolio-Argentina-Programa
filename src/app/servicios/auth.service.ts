@@ -9,7 +9,7 @@ import { JwtDto } from '../model/jwt-dto';
   providedIn: 'root'
 })
 export class AuthService {
-  authURL = 'http://localhost:8080/auth/';
+  authURL = 'https://backendportfolio-fabiolalutrario.koyeb.app/auth/';
   currentUserSubject: BehaviorSubject<any>;
 
   constructor(private httpClient: HttpClient) { 
@@ -28,9 +28,6 @@ export class AuthService {
     }
     return this.httpClient.post<JwtDto>(this.authURL + 'login', loginUsuario, httpOptions).pipe(map(data =>{
       sessionStorage.setItem('currentUser', JSON.stringify(data));
-      //sessionStorage.setItem('currentUser', JSON.stringify(data.userID));
-      //para que me tariga sólo el id en vez del objeto completo
-      //y  no tendría que hacer el mapero, sólo el data.
       this.currentUserSubject.next(data);
       return data;
     }));

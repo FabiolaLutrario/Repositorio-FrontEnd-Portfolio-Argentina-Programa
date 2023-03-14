@@ -10,7 +10,7 @@ import { Idioma } from '../model/idioma';
 
 export class IdiomaService {
 
-    expURL = 'http://localhost:8080/idioma/'
+    expURL = 'https://backendportfolio-fabiolalutrario.koyeb.app/idioma/'
 
     constructor(private httpClient: HttpClient) { }
 

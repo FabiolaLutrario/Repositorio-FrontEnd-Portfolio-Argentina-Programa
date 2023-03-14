@@ -37,6 +37,10 @@ export class ModalEditarBannerComponent implements OnInit {
     this.refrescarIndex();
   }
 
+  uploadImage($event:any){
+
+  }
+
   get Banner(){
     return this.form.get("banner");
   }

@@ -9,8 +9,8 @@ import { UsuarioService } from 'src/app/servicios/usuario.service';
   styleUrls: ['./sobre-mi.component.css']
 })
 export class SobreMiComponent implements OnInit {
-  // usuario:Usuario = new Usuario("","","","","","","",[],[],[],[]);
-  usuario: Usuario=null;
+  usuario:Usuario = new Usuario("","","","","","","",[],[],[],[],[]);
+  //usuario: Usuario=null;
 
   constructor(public usuarioService: UsuarioService, private tokenService: TokenService) { }
 

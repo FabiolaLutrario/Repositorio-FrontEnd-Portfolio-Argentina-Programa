@@ -6,7 +6,7 @@
                 <!-- Button editar foto perfil modal -->
                 <button id="botonEditarFotoPerfil" type="button" data-bs-toggle="modal"
                     data-bs-target="#editarFotoPerfilModal" style="position:absolute; top:70%; left:70%;"
-                    class="btn btn-success rounded-circle btn-sm">
+                    class="btn btn-success rounded-circle btn-sm" *ngIf="isLogged">
                     <i class="fa-solid fa-pen">
                     </i>
                 </button>
@@ -15,11 +15,8 @@
                 <app-modal-editar-foto>
                 </app-modal-editar-foto>
 
-<!--                 <img [src]="usuario.foto" class="img-fluid rounded-circle border" width="100%" alt="fabiola lutrario"
-                    title="..."> -->
-                    <img src="assets/IMG/fotoPerfil.png"
-                    class="img-fluid rounded-circle border border-3" width="100%" alt="fabiola lutrario"
-                    title="...">
+                <img src={{usuario.foto}} class="img-fluid rounded-circle border border-3" width="100%"
+                    alt="fabiola lutrario" title="...">
             </div>
 
             <div class="col-10 mt-3">

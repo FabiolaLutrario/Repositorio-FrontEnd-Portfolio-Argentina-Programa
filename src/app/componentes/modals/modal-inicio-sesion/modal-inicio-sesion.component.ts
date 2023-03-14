@@ -5,7 +5,6 @@ import { LoginUsuario } from 'src/app/model/login-usuario';
 import { AuthService } from 'src/app/servicios/auth.service';
 import { TokenService } from 'src/app/servicios/token.service';
 
-
 @Component({
   selector: 'app-modal-inicio-sesion',
   templateUrl: './modal-inicio-sesion.component.html',

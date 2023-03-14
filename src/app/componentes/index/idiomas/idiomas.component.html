@@ -45,35 +45,9 @@
                     <!-- Button eliminar idioma -->
                     <button id="botonEliminarIdioma" type="button" class="btn btn-success rounded-circle btn-sm"
                         *ngIf="isLogged">
-                        <i class="fa-solid fa-trash-can" data-bs-toggle="modal" data-bs-target="#eliminarIdiomaModal">
+                        <i class="fa-solid fa-trash-can" (click)="delete(PersonaIdioma.id)">
                         </i>
                     </button>
-
-                    <!-- Modal eliminar idioma -->
-                    <div class="modal fade" id="eliminarIdiomaModal" tabindex="-1"
-                        aria-labelledby="eliminarIdiomaModalLabel" aria-hidden="true">
-                        <div class="modal-dialog">
-                            <div class="modal-content">
-                                <div class="modal-header">
-                                    <h1 class="modal-title fs-5" id="eliminarIdiomaModalLabel">Eliminar Idioma</h1>
-                                    <button type="button" class="btn-close" data-bs-dismiss="modal"
-                                        aria-label="Close"></button>
-                                </div>
-                                <div class="modal-body" style="text-align: left; display: block;">
-                                    ¿Está seguro de eliminar?
-                                </div>
-                                <div class="modal-footer">
-                                    <button type="button" data-bs-dismiss="modal" (click)="delete(PersonaIdioma.id)"
-                                        class="btn btn-primary">
-                                        Eliminar
-                                    </button>
-                                    <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">
-                                        Cancelar
-                                    </button>
-                                </div>
-                            </div>
-                        </div>
-                    </div>
                 </div>
             </div>
         </div>

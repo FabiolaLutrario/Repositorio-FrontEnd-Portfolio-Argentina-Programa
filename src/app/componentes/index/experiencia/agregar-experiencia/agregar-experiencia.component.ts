@@ -5,7 +5,6 @@ import { AuthService } from 'src/app/servicios/auth.service';
 import { Experiencia } from 'src/app/model/experiencia.model';
 import { ExperienciaService } from 'src/app/servicios/experiencia.service';
 
-
 @Component({
   selector: 'app-agregar-experiencia',
   templateUrl: './agregar-experiencia.component.html',
@@ -25,12 +24,12 @@ export class AgregarExperienciaComponent implements OnInit {
   constructor(private experienciaService: ExperienciaService, private router: Router,
     private formBuilder: FormBuilder, private authService:AuthService) { 
       this.form= this.formBuilder.group({
+        logo:[''],
         cargo:['',[Validators.required]],
         empresa:['', [Validators.required]],
         esTrabajoActual:[''],
         fechaInicio:['', [Validators.required]],
         fechaFin:[''],
-        logo:[''],
         descripcion:[''],
      })
     }
@@ -64,6 +63,10 @@ onCreate():void{
     )
   }
 
+  get Logo(){
+    return this.form.get("logo");
+   }
+
   get Cargo(){
     return this.form.get("cargo");
    }
@@ -82,10 +85,6 @@ onCreate():void{
 
    get FechaFin(){
     return this.form.get("fechaFin");
-   }
-
-   get Logo(){
-    return this.form.get("logo");
    }
 
    get Descripcion(){

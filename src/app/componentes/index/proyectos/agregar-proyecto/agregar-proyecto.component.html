@@ -1,0 +1,79 @@
+<div class="container">
+    <div class="row">
+        <div>
+            <div>
+                <h4 id="agregarNuevoProyectoLabel">Añadir
+                    Proyecto</h4>
+            </div>
+
+            <form [formGroup]="form" (ngSubmit)="onEnviar($event)" novalidate #f="ngForm" name="proyectoFormAdd">
+                <div class="form-group">
+                    <div class="p-3 mb-2 bg-primary-subtle text-emphasis-primary">
+                        <div>
+                            <h5 style="text-align:left" class="form-label" for="nombre">Nombre:</h5>
+                        </div>
+                        <div class="form-group mb-3">
+                            <input class="form-control" formControlName="nombre" type="text" id="nombre" name="nombre"
+                                [(ngModel)]="nombre" style="box-shadow: 0 0 0px 1000px #ffffff inset;"
+                                placeholder="Ingrese el nombre del proyecto" autofocus>
+                        </div>
+                        <div *ngIf="Nombre?.errors  && Nombre?.touched">
+                            <p *ngIf="Nombre?.hasError('required')" style="text-align: center;"
+                                class="alert alert-danger">
+                                El nombre del proyecto es requerido.
+                            </p>
+                        </div>
+                    </div>
+
+                    <div class="form-group mb-3 p-3 mb-2 bg-primary-subtle text-emphasis-primary">
+                        <h5 style="text-align:left" class="form-label" for="fechaRealizacion">Fecha de Realización:</h5>
+                        <input class="form-control" formControlName="fechaRealizacion" type="date" id="fechaRealizacion"
+                            name="fechaRealizacion" [(ngModel)]="fechaRealizacion" value="20-04-1000">
+                    </div>
+                    <div *ngIf="FechaRealizacion?.errors  && FechaRealizacion?.touched">
+                        <p *ngIf="FechaRealizacion?.hasError('required')" style="text-align: center;"
+                            class="alert alert-danger">
+                            La fecha en la que realizó el proyecto es requerida.
+                        </p>
+                    </div>
+
+                    <div class="form-group mb-3 p-3 mb-2 bg-primary-subtle text-emphasis-primary">
+                        <h5 style="text-align:left" class="form-label" for="descripcion">Descripción (Opcional):</h5>
+                        <textarea class="form-control" formControlName="descripcion" aria-label="With textarea"
+                            id="descripcion" name="descripcion" [(ngModel)]="descripcion"
+                            placeholder="Ingrese una breve descripción del proyecto (Opcional)"></textarea>
+                    </div>
+
+                    <div class="form-group mb-3 p-3 mb-2 bg-primary-subtle text-emphasis-primary">
+                        <h5 style="text-align:left" class="form-label" for="link">Link(Opcional): Colocar el enlace
+                            antecedido de "https://"</h5>
+                        <input class="form-control" formControlName="link" type="text" id="link" name="link"
+                            [(ngModel)]="link" style="box-shadow: 0 0 0px 1000px #ffffff inset;"
+                            placeholder="Ingrese el link del proyecto (Opcional).">
+                    </div>
+
+                    <div class="form-group mb-3 p-3 mb-2 bg-primary-subtle text-emphasis-primary">
+                        <h5 style="text-align:left" class="form-label" for="logo">Logo del Proyecto (Opcional):</h5>
+                        <input class="form-control" formControlName="logo" type="file" id="logo" name="logo"
+                            [(ngModel)]="logo">
+                    </div>
+
+                    <div class="form-group mb-3 p-3 mb-2 bg-primary-subtle text-emphasis-primary">
+                        <h5 style="text-align:left" class="form-label" for="imagen">Imagen del Proyecto (Opcional):</h5>
+                        <input class="form-control" formControlName="imagen" type="file" id="iamgen" name="imagen"
+                            [(ngModel)]="imagen">
+                    </div>
+
+                </div>
+                <div style="display: inline-flex; flex-direction: row;">
+                    <button type="submit" class="btn btn-primary">Guardar</button>
+                </div>
+                <div style="display: inline-flex; flex-direction: row; margin-left: 4px;">
+                    <button type="button" class="btn btn-secondary" routerLink="/index">
+                        Volver
+                    </button>
+                </div>
+            </form>
+        </div>
+    </div>
+</div>

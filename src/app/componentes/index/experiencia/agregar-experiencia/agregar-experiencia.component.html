@@ -1,93 +1,90 @@
 <div class="container">
-    <div class="row">
-        <div>
-            <div>
-            <h4 id="agregarNuevaExperienciaLabel">Añadir
-                Experiencia Laboral</h4>
-        </div>
+  <div class="row">
+    <div>
+      <div>
+        <h4 id="agregarNuevaExperienciaLabel">Añadir
+          Experiencia Laboral</h4>
+      </div>
 
-        <form [formGroup]="form" (ngSubmit)="onEnviar($event)" novalidate #f="ngForm"
-        name="experienciaFormAdd">
+      <form [formGroup]="form" (ngSubmit)="onEnviar($event)" novalidate #f="ngForm" name="experienciaFormAdd">
         <div class="form-group">
           <div class="p-3 mb-2 bg-primary-subtle text-emphasis-primary">
-              <div>
-                <h5 style="text-align:left" class="form-label" for="cargo">Cargo:</h5>
-                </div>
-                <div class="form-group mb-3">
-                <input class="form-control" formControlName="cargo" type="text" id="cargo" name="cargo" 
+            <div>
+              <h5 style="text-align:left" class="form-label" for="cargo">Cargo:</h5>
+            </div>
+            <div class="form-group mb-3">
+              <input class="form-control" formControlName="cargo" type="text" id="cargo" name="cargo"
                 [(ngModel)]="cargo" style="box-shadow: 0 0 0px 1000px #ffffff inset;" placeholder="Ingrese el cargo"
                 autofocus>
             </div>
             <div *ngIf="Cargo?.errors  && Cargo?.touched">
-                <p *ngIf="Cargo?.hasError('required')" style="text-align: center;" class="alert alert-danger">
-                  El cargo es requerido.
-                </p>
-              </div>
+              <p *ngIf="Cargo?.hasError('required')" style="text-align: center;" class="alert alert-danger">
+                El cargo es requerido.
+              </p>
+            </div>
           </div>
 
-            <div class="form-group mb-3 p-3 mb-2 bg-primary-subtle text-emphasis-primary">
-                <h5 style="text-align:left" class="form-label" for="empresa">Empresa:</h5>
-                <input class="form-control" formControlName="empresa" type="text" id="empresa" name="empresa" 
-                [(ngModel)]="empresa" style="box-shadow: 0 0 0px 1000px #ffffff inset;" 
-                placeholder="Ingrese el nombre de la empresa.">
-            </div>
-            <div *ngIf="Empresa?.errors  && Empresa?.touched">
-                <p *ngIf="Empresa?.hasError('required')" style="text-align: center;" class="alert alert-danger">
-                  El nombre de la empresa es requerido.
-                </p>
-              </div>
+          <div class="form-group mb-3 p-3 mb-2 bg-primary-subtle text-emphasis-primary">
+            <h5 style="text-align:left" class="form-label" for="empresa">Empresa:</h5>
+            <input class="form-control" formControlName="empresa" type="text" id="empresa" name="empresa"
+              [(ngModel)]="empresa" style="box-shadow: 0 0 0px 1000px #ffffff inset;"
+              placeholder="Ingrese el nombre de la empresa.">
+          </div>
+          <div *ngIf="Empresa?.errors  && Empresa?.touched">
+            <p *ngIf="Empresa?.hasError('required')" style="text-align: center;" class="alert alert-danger">
+              El nombre de la empresa es requerido.
+            </p>
+          </div>
 
-              <div class="p-3 mb-2 bg-primary-subtle text-emphasis-primary">
-              <div>
-                <h5 style="text-align:left" class="form-check-label" for="esTrabajoActual">¿Es trabajo actual?</h5>
-              </div>
+          <div class="p-3 mb-2 bg-primary-subtle text-emphasis-primary">
+            <div>
+              <h5 style="text-align:left" class="form-check-label" for="esTrabajoActual">¿Es trabajo actual?</h5>
+            </div>
             <div class="form-check form-switch">
-                <input class="form-check-input" formControlName="esTrabajoActual" 
-                type="checkbox" role="switch" id="flexSwitchCheckDefault"
-                id="esTrabajoActual" name="esTrabajoActual" [(ngModel)]="esTrabajoActual">
-              </div>
-              </div> 
-            <div class="form-group mb-3 p-3 mb-2 bg-primary-subtle text-emphasis-primary">
-                <h5 style="text-align:left" class="form-label" for="fechaInicio">Fecha Inicio:</h5>
-                <input class="form-control" formControlName="fechaInicio" type="date" id="fechaInicio" name="fechaInicio" 
-                [(ngModel)]="fechaInicio" value="20-04-1000">
+              <input class="form-check-input" formControlName="esTrabajoActual" type="checkbox" role="switch"
+                id="flexSwitchCheckDefault" id="esTrabajoActual" name="esTrabajoActual" [(ngModel)]="esTrabajoActual">
             </div>
-            <div *ngIf="FechaInicio?.errors  && FechaInicio?.touched">
-                <p *ngIf="FechaInicio?.hasError('required')" style="text-align: center;" class="alert alert-danger">
-                  La fecha en la que inició sus labores en la empresa es requerido.
-                </p>
-              </div>
-            <div class="form-group mb-3 p-3 mb-2 bg-primary-subtle text-emphasis-primary" *ngIf="!esTrabajoActual">
-                <h5 style="text-align:left" class="form-label" for="fechaFin">Fecha Fin:</h5>
-                <input class="form-control" formControlName="fechaFin" type="date" id="fechaFin" name="fechaFin" 
-                [(ngModel)]="fechaFin" value="20-04-1000">
-                </div>
+          </div>
+          <div class="form-group mb-3 p-3 mb-2 bg-primary-subtle text-emphasis-primary">
+            <h5 style="text-align:left" class="form-label" for="fechaInicio">Fecha Inicio:</h5>
+            <input class="form-control" formControlName="fechaInicio" type="date" id="fechaInicio" name="fechaInicio"
+              [(ngModel)]="fechaInicio" value="20-04-1000">
+          </div>
+          <div *ngIf="FechaInicio?.errors  && FechaInicio?.touched">
+            <p *ngIf="FechaInicio?.hasError('required')" style="text-align: center;" class="alert alert-danger">
+              La fecha en la que inició sus labores en la empresa es requerido.
+            </p>
+          </div>
+          <div class="form-group mb-3 p-3 mb-2 bg-primary-subtle text-emphasis-primary" *ngIf="!esTrabajoActual">
+            <h5 style="text-align:left" class="form-label" for="fechaFin">Fecha Fin:</h5>
+            <input class="form-control" formControlName="fechaFin" type="date" id="fechaFin" name="fechaFin"
+              [(ngModel)]="fechaFin" value="20-04-1000">
+          </div>
 
-                <!-- 
+          <!-- 
                   Hacer acá una validación donde diga que "Si no es trabajo actual debe indicar la fecha 
                   en la cual culminó." -->
 
-            <div class="form-group mb-3 p-3 mb-2 bg-primary-subtle text-emphasis-primary">
-                <h5 style="text-align:left" class="form-label" for="logo">Logo de la Empresa (Opcional):</h5>
-                <input class="form-control" formControlName="logo" type="file" id="logo" name="logo" 
-                [(ngModel)]="logo">
-            </div>
-            <div class="form-group mb-3 p-3 mb-2 bg-primary-subtle text-emphasis-primary">
-                <h5 style="text-align:left" class="form-label" for="descripcion">Descripción (Opcional):</h5>
-                <textarea class="form-control" formControlName="descripcion" aria-label="With textarea" id="descripcion" 
-                name="descripcion" [(ngModel)]="descripcion" placeholder="Ingrese una breve descripción de las funciones
+          <div class="form-group mb-3 p-3 mb-2 bg-primary-subtle text-emphasis-primary">
+            <h5 style="text-align:left" class="form-label" for="logo">Logo de la Empresa (Opcional):</h5>
+            <input class="form-control" formControlName="logo" type="file" id="logo" name="logo" [(ngModel)]="logo">
+          </div>
+          <div class="form-group mb-3 p-3 mb-2 bg-primary-subtle text-emphasis-primary">
+            <h5 style="text-align:left" class="form-label" for="descripcion">Descripción (Opcional):</h5>
+            <textarea class="form-control" formControlName="descripcion" aria-label="With textarea" id="descripcion"
+              name="descripcion" [(ngModel)]="descripcion" placeholder="Ingrese una breve descripción de las funciones
                 desempeñadas en el cargo (Opcional)"></textarea>
-            </div>
+          </div>
         </div>
         <div style="display: inline-flex; flex-direction: row;">
-            <button type="submit" class="btn btn-primary">Guardar</button>
+          <button type="submit" class="btn btn-primary">Guardar</button>
         </div>
         <div style="display: inline-flex; flex-direction: row; margin-left: 4px;">
           <button type="button" class="btn btn-secondary" routerLink="/index">
             Volver
-        </button>
-      </div>
-    </form>
+          </button>
         </div>
-        </div>
-        </div>
+      </form>
+    </div>
+  </div>
+</div>

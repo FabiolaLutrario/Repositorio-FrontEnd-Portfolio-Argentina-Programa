@@ -3,7 +3,6 @@ import { Router } from '@angular/router';
 import { TokenService } from 'src/app/servicios/token.service';
 import { UsuarioService } from 'src/app/servicios/usuario.service';
 
-
 @Component({
   selector: 'app-banner',
   templateUrl: './banner.component.html',

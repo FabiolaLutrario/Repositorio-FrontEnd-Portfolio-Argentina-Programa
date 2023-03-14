@@ -8,7 +8,7 @@ import { PersonaHabilidad } from '../model/persona-habilidad';
   })
 export class HabilidadService {
 
-    expURL = 'http://localhost:8080/habilidad/'
+    expURL = 'https://backendportfolio-fabiolalutrario.koyeb.app/habilidad/'
 
     constructor(private httpClient: HttpClient) { }
 

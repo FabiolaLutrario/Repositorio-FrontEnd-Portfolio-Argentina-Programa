@@ -3,6 +3,7 @@ import { Injectable } from '@angular/core';
 import { Observable } from 'rxjs';
 import { Usuario } from '../model/usuario.model';
 import { AuthService } from './auth.service';
+import { TokenService } from './token.service';
 
 @Injectable({
   providedIn: 'root'
@@ -10,13 +11,19 @@ import { AuthService } from './auth.service';
 
 export class UsuarioService {
 
-  URL='http://localhost:8080/auth/'
+  URL='https://backendportfolio-fabiolalutrario.koyeb.app/auth/'
 
-  constructor(private http:HttpClient, private authService: AuthService) { }
+  constructor(private http:HttpClient, private authService: AuthService, 
+    private tokenService: TokenService) { }
 
   public getUsuario():Observable<Usuario>{
     // userId trae el usuario activo(logeado) desde authService
-    const userId = this.authService.usuarioAuth.userId;
+    // y en caso que no esté logeado muestra el usuario por defecto,
+    // es decir el usuario 1.
+    var userId = this.authService.usuarioAuth.userId;
+    if(!this.tokenService.getToken()){
+      userId=1;
+    }
     return this.http.get<Usuario>(this.URL+'traer/perfil/'+`${parseInt(userId)}`);
   }
 

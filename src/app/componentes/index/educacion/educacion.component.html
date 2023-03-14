@@ -6,79 +6,49 @@
             </div>
 
             <div class="col-1 text-end" style="padding-top: 1rem; padding-right: 1rem;">
-            
-                <!-- Button agregar educacion -->
-    <button id="botonAgregarEducacion"
-        class="btn btn-success rounded-circle btn-sm" *ngIf="isLogged"><i class="fa-solid fa-plus"
-        routerLink="/addEducacion">
-        </i>
-    </button>
 
-    </div>
+                <!-- Button agregar educacion -->
+                <button id="botonAgregarEducacion" class="btn btn-success rounded-circle btn-sm" *ngIf="isLogged"><i
+                        class="fa-solid fa-plus" routerLink="/addEducacion">
+                    </i>
+                </button>
+
+            </div>
         </div>
 
         <div class="card mb-3">
             <div id="bordeTarjetas" *ngFor="let Educacion of estudios" class="row g-0">
                 <div class="col-1 text-center">
-                    <img [src]="Educacion.logo" class="img-fluid rounded-start" width="50px"
-                        alt="...">
+                    <img src={{Educacion.logo}} class="img-fluid rounded-start" width="50px" alt="...">
                 </div>
                 <div class="col-10">
                     <div class="card-body" style="padding: 0;">
                         <h5 id="educacionTitulo" class="card-title">{{Educacion.titulo}}</h5>
-                        <p id="educacionCentroEducativo" >{{Educacion.centroEducativo}}</p>
+                        <p id="educacionCentroEducativo">{{Educacion.centroEducativo}}</p>
                         <p id="educacionPeriodo" class="card-text"><small class="text-muted">
-                            {{Educacion.fechaInicio | date:"dd-MM-yyyy"}} | 
-                            {{Educacion.fechaFin | date:"dd-MM-yyyy"}} 
-                            <p *ngIf="Educacion.fechaFin==null" style="display: inline-block;">Actualidad</p>
-                        </small></p>
+                                {{Educacion.fechaInicio | date:"dd-MM-yyyy"}} |
+                                {{Educacion.fechaFin | date:"dd-MM-yyyy"}}
+                                <p *ngIf="Educacion.fechaFin==null" style="display: inline-block;">Actualidad</p>
+                            </small></p>
                         <p id="educacionDescripcion" class="card-text">{{Educacion.descripcion}}</p>
                     </div>
                 </div>
 
                 <div class="col-1 text-end">
 
-                                       <!-- Button editar educacion -->
-                                       <button type="button" id="botonEditarEducacion"
-                                       class="btn btn-success rounded-circle btn-sm" *ngIf="isLogged"
-                                       routerLink="/editEducacion/{{Educacion.id}}">
-                                       <i class="fa-solid fa-pen">
-                                       </i>
-                                   </button>
-                               
-                               
-                                   <!-- Button eliminar educacion -->
-                                   <button id="botonEliminarEducacion" type="button"
-                                   class="btn btn-success rounded-circle btn-sm" *ngIf="isLogged">
-                                   <i class="fa-solid fa-trash-can"
-                                   data-bs-toggle="modal" data-bs-target="#eliminarEducacionModal">
-                                   </i>
-                               </button>
-                 
-                 <!-- Modal eliminar educacion -->
-                 <div class="modal fade" id="eliminarEducacionModal" tabindex="-1" aria-labelledby="eliminarEducacionModalLabel" aria-hidden="true">
-                   <div class="modal-dialog">
-                     <div class="modal-content">
-                       <div class="modal-header">
-                         <h1 class="modal-title fs-5" id="eliminarEducacionModalLabel">Eliminar Educacion</h1>
-                         <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
-                       </div>
-                       <div class="modal-body" style="text-align: left; display: block;">
-                           ¿Está seguro de eliminar?
-                       </div>
-                       <div class="modal-footer">
-                         <button type="button" data-bs-dismiss="modal" (click)="delete(Educacion.id)" 
-                         class="btn btn-primary">
-                           Eliminar
-                       </button>
-                       <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">
-                           Cancelar
-                       </button>
-                       </div>
-                     </div>
-                   </div>
-                 </div>
+                    <!-- Button editar educacion -->
+                    <button type="button" id="botonEditarEducacion" class="btn btn-success rounded-circle btn-sm"
+                        *ngIf="isLogged" routerLink="/editEducacion/{{Educacion.id}}">
+                        <i class="fa-solid fa-pen">
+                        </i>
+                    </button>
 
+                    <!-- Button eliminar educacion -->
+                    <button id="botonEliminarEducacion" type="button" class="btn btn-success rounded-circle btn-sm"
+                        *ngIf="isLogged">
+                        <i class="fa-solid fa-trash-can" (click)="delete(Educacion.id)">
+                        </i>
+                    </button>
                 </div>
             </div>
         </div>

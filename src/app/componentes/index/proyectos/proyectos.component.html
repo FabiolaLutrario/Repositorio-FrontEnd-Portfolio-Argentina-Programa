@@ -2,30 +2,55 @@
     <div class="container-fluid">
 
         <div class="row g-0">
-            <div class="col-12">
+            <div class="col-11">
                 <h3 style="padding-top: 1rem;">Proyectos</h3>
+            </div>
+
+            <div class="col-1 text-end" style="padding-top: 1rem; padding-right: 1rem;">
+
+                <!-- Button agregar proyecto -->
+                <button id="botonAgregarProyecto" class="btn btn-success rounded-circle btn-sm" *ngIf="isLogged"
+                    routerLink="/addProyecto">
+                    <i class="fa-solid fa-plus">
+                    </i>
+                </button>
             </div>
         </div>
 
         <div class="card mb-3">
-             <div id="bordeTarjetas" *ngFor="let proyecto of proyectos" class="row g-0">
+            <div id="bordeTarjetas" *ngFor="let Proyecto of proyectos" class="row g-0">
                 <div class="col-1 text-center">
-                    <img [src]="proyecto.logo" class="img-fluid rounded-start" width="50px" alt="...">
+                    <img src={{Proyecto.logo}} class="img-fluid rounded-start" width="50px" alt="...">
                 </div>
                 <div class="col-10">
                     <div class="card-body" style="padding: 0;">
-                        <h5 id="proyectoNombre" class="card-title">{{proyecto.nombre}}</h5>
-                        <p id="proyectoFecha" class="card-text"><small class="text-muted">{{proyecto.fechaRealizacion}}</small></p>
-                        <p id="proyectoDescripcion" class="card-text">{{proyecto.descripcion}}</p>
-                        <a id="proyectoLink" [href]="proyecto.link" target="_blank">Link del proyecto</a>
+                        <h5 id="proyectoNombre" class="card-title">{{Proyecto.nombre}}</h5>
+                        <p id="proyectoFechaRealizacion" class="card-text"><small
+                                class="text-muted">{{Proyecto.fechaRealizacion | date:"dd-MM-yyyy"}}</small></p>
+                        <p id="proyectoDescripcion" class="card-text">{{Proyecto.descripcion}}</p>
+                        <a [href]="Proyecto.link" target="_blank" id="proyectoLink"
+                            rel="noopener noreferrer">{{Proyecto.link}}</a>
                         <div class="container" style="text-align: center;">
-                        <img id="proyectoImg" [src]="proyecto.img" class="container-fluid">
-                    </div>
+                            <img id="proyectoImg" src={{Proyecto.imagen}} class="container-fluid">
+                        </div>
                     </div>
                 </div>
 
                 <div class="col-1 text-end">
 
+                    <!-- Button editar proyecto -->
+                    <button type="button" id="botonEditarProyecto" class="btn btn-success rounded-circle btn-sm"
+                        *ngIf="isLogged" routerLink="/editProyecto/{{Proyecto.id}}">
+                        <i class="fa-solid fa-pen">
+                        </i>
+                    </button>
+
+                    <!-- Button eliminar proyecto -->
+                    <button id="botonEliminarProyecto" type="button" class="btn btn-success rounded-circle btn-sm"
+                        *ngIf="isLogged">
+                        <i class="fa-solid fa-trash-can" (click)="delete(Proyecto.id)">
+                        </i>
+                    </button>
                 </div>
             </div>
         </div>

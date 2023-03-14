@@ -11,7 +11,8 @@ import { UsuarioService } from 'src/app/servicios/usuario.service';
   styleUrls: ['./modal-editar-titulo.component.css']
 })
 export class ModalEditarTituloComponent implements OnInit {
-  usuario: Usuario=null;
+  usuario:Usuario = new Usuario("","","","","","","",[],[],[],[],[]);
+  //usuario: Usuario=null;
   titulo: string;
   form:FormGroup;
 

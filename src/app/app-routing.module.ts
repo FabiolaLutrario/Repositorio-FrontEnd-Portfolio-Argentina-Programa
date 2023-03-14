@@ -11,6 +11,8 @@ import { AgregarHabilidadComponent } from './componentes/index/habilidades/agreg
 import { EditarHabilidadComponent } from './componentes/index/habilidades/editar-habilidad/editar-habilidad.component';
 import { AgregarIdiomaComponent } from './componentes/index/idiomas/agregar-idioma/agregar-idioma.component';
 import { EditarIdiomaComponent } from './componentes/index/idiomas/editar-idioma/editar-idioma.component';
+import { AgregarProyectoComponent } from './componentes/index/proyectos/agregar-proyecto/agregar-proyecto.component';
+import { EditarProyectoComponent } from './componentes/index/proyectos/editar-proyecto/editar-proyecto.component';
 import { NuevoUsuarioComponent } from './componentes/index/nuevo-usuario/nuevo-usuario.component';
 
 const routes: Routes =[
@@ -24,6 +26,8 @@ const routes: Routes =[
   {path: 'editHabilidad/:id', component: EditarHabilidadComponent},
   {path: 'addIdioma', component: AgregarIdiomaComponent},
   {path: 'editIdioma/:id', component: EditarIdiomaComponent},
+  {path: 'addProyecto', component: AgregarProyectoComponent},
+  {path: 'editProyecto/:id', component: EditarProyectoComponent},
   {path: 'newUser', component: NuevoUsuarioComponent},
   {path: '**', component:ErrorComponent}
 ];

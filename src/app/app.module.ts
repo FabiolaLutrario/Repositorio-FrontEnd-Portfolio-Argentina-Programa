@@ -31,6 +31,8 @@ import { ModalEditarNombreYApellidoComponent } from './componentes/modals/modal-
 import { ModalEditarTituloComponent } from './componentes/modals/modal-editar-titulo/modal-editar-titulo.component';
 import { ModalEditarFotoComponent } from './componentes/modals/modal-editar-foto/modal-editar-foto.component';
 import { ModalEditarBannerComponent } from './componentes/modals/modal-editar-banner/modal-editar-banner.component';
+import { EditarProyectoComponent } from './componentes/index/proyectos/editar-proyecto/editar-proyecto.component';
+import { AgregarProyectoComponent } from './componentes/index/proyectos/agregar-proyecto/agregar-proyecto.component';
 @NgModule({
   declarations: [
     AppComponent,
@@ -59,7 +61,9 @@ import { ModalEditarBannerComponent } from './componentes/modals/modal-editar-ba
     ModalEditarNombreYApellidoComponent,
     ModalEditarTituloComponent,
     ModalEditarFotoComponent,
-    ModalEditarBannerComponent
+    ModalEditarBannerComponent,
+    EditarProyectoComponent,
+    AgregarProyectoComponent
   ],
   imports: [
     BrowserModule,

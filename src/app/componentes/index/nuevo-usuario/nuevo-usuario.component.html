@@ -17,8 +17,7 @@
                                 placeholder="Ingrese el nombre">
                         </div>
                         <div *ngIf="Nombre?.errors  && Nombre?.touched">
-                            <p *ngIf="Nombre?.hasError('required')"
-                                class="alert alert-danger">
+                            <p *ngIf="Nombre?.hasError('required')" class="alert alert-danger">
                                 El nombre es requerido.
                             </p>
                         </div>
@@ -29,13 +28,12 @@
                             <h5 style="text-align:left" class="form-label" for="cargo">Apellido:</h5>
                         </div>
                         <div class="form-group mb-3">
-                            <input class="form-control" formControlName="apellido" type="text" id="apellido" name="apellido"
-                                [(ngModel)]="apellido" style="box-shadow: 0 0 0px 1000px #ffffff inset;"
+                            <input class="form-control" formControlName="apellido" type="text" id="apellido"
+                                name="apellido" [(ngModel)]="apellido" style="box-shadow: 0 0 0px 1000px #ffffff inset;"
                                 placeholder="Ingrese el apellido">
                         </div>
                         <div *ngIf="Apellido?.errors  && Apellido?.touched">
-                            <p *ngIf="Apellido?.hasError('required')"
-                                class="alert alert-danger">
+                            <p *ngIf="Apellido?.hasError('required')" class="alert alert-danger">
                                 El apellido es requerido.
                             </p>
                         </div>
@@ -63,8 +61,7 @@
                             placeholder="Ingrese la contraseña">
                     </div>
                     <div *ngIf="Password?.errors  && Password?.touched">
-                        <p *ngIf="Password?.hasError('required')"
-                            class="alert alert-danger">
+                        <p *ngIf="Password?.hasError('required')" class="alert alert-danger">
                             La contraseña es requerida.
                         </p>
                         <p *ngIf="Password?.hasError('minlength')" class="alert alert-danger">
@@ -80,8 +77,7 @@
                             placeholder="Vuelva a escribir la contraseña">
                     </div>
                     <div *ngIf="ConfirmPassword?.errors  && ConfirmPassword?.touched">
-                        <p *ngIf="ConfirmPassword?.hasError('required')"
-                            class="alert alert-danger">
+                        <p *ngIf="ConfirmPassword?.hasError('required')" class="alert alert-danger">
                             Debe confirmar la contraseña.
                         </p>
                         <p *ngIf="ConfirmPassword?.hasError('mustMatch')" class="alert alert-danger">
@@ -99,8 +95,7 @@
                                 placeholder="Ingrese el titulo">
                         </div>
                         <div *ngIf="Titulo?.errors  && Titulo?.touched">
-                            <p *ngIf="Titulo?.hasError('required')"
-                                class="alert alert-danger">
+                            <p *ngIf="Titulo?.hasError('required')" class="alert alert-danger">
                                 El titulo es requerido.
                             </p>
                         </div>
@@ -126,8 +121,8 @@
                     </div>
                     <div style="display: inline-flex; flex-direction: row; margin-left: 4px;">
                         <button type="button" class="btn btn-secondary" routerLink="/index">
-                          Volver
-                      </button>
+                            Volver
+                        </button>
                     </div>
                 </div>
             </form>

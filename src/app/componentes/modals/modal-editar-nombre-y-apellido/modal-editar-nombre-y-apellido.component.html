@@ -1,46 +1,47 @@
-<div class="modal fade" id="editarNombreYApellidoModal" tabindex="-1" aria-labelledby="editarNombreYApellidoModalLabel" 
-aria-hidden="true" *ngIf="usuario">
+<div class="modal fade" id="editarNombreYApellidoModal" tabindex="-1" aria-labelledby="editarNombreYApellidoModalLabel"
+    aria-hidden="true" *ngIf="usuario">
     <div class="modal-dialog">
-        <form [formGroup]="form" (ngSubmit)="onEnviar($event)" novalidate #f="ngForm"
-        name="nombreYApellidoFormEdit">
-        <div class="modal-content">
-            <div class="modal-header">
-                <h4 class="modal-title" id="editarNombreYApellidoModalLabel">Editar Nombre y Apellido</h4>
-                <button type="button" style="width:5px; height: 5px;" class="btn-close" data-bs-dismiss="modal"
-                    aria-label="Close" (click)="cargarDatosUsuario()"></button>
-            </div>
-
-            <div class="modal-body">
-                <div class="mb-3">
-                    <h5 class="form-label">Nombre:</h5>
-                    <input class="form-control" type="text" id="nombre" name="nombre"
-                    formControlName="nombre" [(ngModel)]="usuario.nombre" autofocus>
+        <form [formGroup]="form" (ngSubmit)="onEnviar($event)" novalidate #f="ngForm" name="nombreYApellidoFormEdit">
+            <div class="modal-content">
+                <div class="modal-header">
+                    <h4 class="modal-title" id="editarNombreYApellidoModalLabel">Editar Nombre y Apellido</h4>
+                    <button type="button" style="width:5px; height: 5px;" class="btn-close" data-bs-dismiss="modal"
+                        aria-label="Close" (click)="cargarDatosUsuario()"></button>
                 </div>
-                <div *ngIf="Nombre?.errors  && Nombre?.touched">
-                    <p *ngIf="Nombre?.hasError('required')" style="text-align: center;" class="alert alert-danger">
-                      El nombre es requerido.
-                    </p>
-                  </div>
 
-                <div class="mb-3">
-                    <h5 class="form-label">Apellido:</h5>
-                    <input class="form-control" type="text" id="apellido" name="apellido"
-                    formControlName="apellido" [(ngModel)]="usuario.apellido">
+                <div class="modal-body">
+                    <div class="mb-3">
+                        <h5 class="form-label">Nombre:</h5>
+                        <input class="form-control" type="text" id="nombre" name="nombre" formControlName="nombre"
+                            [(ngModel)]="usuario.nombre" autofocus>
+                    </div>
+                    <div *ngIf="Nombre?.errors  && Nombre?.touched">
+                        <p *ngIf="Nombre?.hasError('required')" style="text-align: center;" class="alert alert-danger">
+                            El nombre es requerido.
+                        </p>
+                    </div>
+
+                    <div class="mb-3">
+                        <h5 class="form-label">Apellido:</h5>
+                        <input class="form-control" type="text" id="apellido" name="apellido" formControlName="apellido"
+                            [(ngModel)]="usuario.apellido">
+                    </div>
+                    <div *ngIf="Apellido?.errors  && Apellido?.touched">
+                        <p *ngIf="Apellido?.hasError('required')" style="text-align: center;"
+                            class="alert alert-danger">
+                            El apellido es requerido.
+                        </p>
+                    </div>
+
                 </div>
-                <div *ngIf="Apellido?.errors  && Apellido?.touched">
-                    <p *ngIf="Apellido?.hasError('required')" style="text-align: center;" class="alert alert-danger">
-                      El apellido es requerido.
-                    </p>
-                  </div>
-
+                <div class="modal-footer">
+                    <button type="submit" class="btn btn-primary" data-bs-dismiss="modal">Actualizar</button>
+                    <button type="button" class="btn btn-secondary" data-bs-dismiss="modal"
+                        (click)="cargarDatosUsuario()">
+                        Cerrar
+                    </button>
+                </div>
             </div>
-            <div class="modal-footer">
-                <button type="submit" class="btn btn-primary" data-bs-dismiss="modal">Actualizar</button>
-                <button type="button" class="btn btn-secondary" data-bs-dismiss="modal" (click)="cargarDatosUsuario()">
-                    Cerrar
-                </button>
-            </div>
-        </div>
         </form>
     </div>
 </div>

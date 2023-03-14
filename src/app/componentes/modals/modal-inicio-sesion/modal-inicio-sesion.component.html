@@ -1,36 +1,37 @@
-<div class="modal fade" data-bs-backdrop="static" data-bs-keyboard="false" id="userLockModal" tabindex="-1" aria-labelledby="userLockModalLabel" aria-hidden="true">
-    <div class="modal-dialog" >
-      <div class="modal-content">
-        <div class="modal-header">
-          <h5 class="modal-title" id="userLockModalLabel">Login</h5>
-          <button id="botonCerrarModalSesion" type="button" class="btn-close" data-bs-dismiss="modal"
-          aria-label="Close" (click)="limpiar()"></button>
-        </div>
-    
-        <form [formGroup]="form"  (ngSubmit)="onLogin($event)" novalidate>
+<div class="modal fade" data-bs-backdrop="static" data-bs-keyboard="false" id="userLockModal" tabindex="-1"
+  aria-labelledby="userLockModalLabel" aria-hidden="true">
+  <div class="modal-dialog">
+    <div class="modal-content">
+      <div class="modal-header">
+        <h5 class="modal-title" id="userLockModalLabel">Login</h5>
+        <button id="botonCerrarModalSesion" type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"
+          (click)="limpiar()"></button>
+      </div>
+
+      <form [formGroup]="form" (ngSubmit)="onLogin($event)" novalidate>
         <div class="modal-body">
           <div class="mb-3 row">
             <label for="email" class="col-sm-2 col-form-label">Email</label>
             <div class="col-sm-10">
-              <input type="text" formControlName="email" class="form-control" id="email"
-              [(ngModel)]="email" autofocus placeholder="example@email.com"/>
+              <input type="text" formControlName="email" class="form-control" id="email" [(ngModel)]="email" autofocus
+                placeholder="example@email.com" />
             </div>
           </div>
-          <div *ngIf="Email?.errors  && Email?.touched">    
+          <div *ngIf="Email?.errors  && Email?.touched">
             <p *ngIf="Email?.hasError('required')" class="alert alert-danger">
-                El email es requerido.
+              El email es requerido.
             </p>
             <p *ngIf="Email?.hasError('email')" class="alert alert-danger">
               El formato del email debe ser válido.
             </p>
-        </div>
+          </div>
           <div class="mb-3 row">
             <label for="password" class="col-sm-2 col-form-label">Contraseña</label>
             <div class="col-sm-10">
               <input type="password" formControlName="password" class="form-control" id="password"
-              [(ngModel)]="password"/>
+                [(ngModel)]="password" />
             </div>
-          </div> 
+          </div>
           <div *ngIf="Password?.errors  && Password?.touched">
             <p *ngIf="Password?.hasError('required')" class="alert alert-danger">
               La contraseña es requerida.
@@ -40,22 +41,22 @@
           <!-- <p class="small mb-5 pb-lg-2"><a class="text-white-50" href="#!">¿Olvidó la contraseña?</a></p> -->
 
           <div>
-            <p class="mb-0">¿No tienes una cuenta? <a href="#!" class="text-black-50 fw-bold" 
-              data-bs-dismiss="modal" routerLink="/newUser">Crear usuario</a>
+            <p class="mb-0">¿No tienes una cuenta? <a href="#!" class="text-black-50 fw-bold" data-bs-dismiss="modal"
+                routerLink="/newUser">Crear usuario</a>
             </p>
           </div>
 
         </div>
         <div class="modal-footer">
+          <button type="submit" id="botonInicioSesion" class="btn btn-primary">
+            <a style="color: #ffffff; text-decoration: none;"> Iniciar sesión</a>
+          </button>
           <button type="button" class="btn btn-secondary" data-bs-dismiss="modal" (click)="limpiar()">
             Cerrar
-        </button>
-          <button type="submit"  id="botonInicioSesion" class="btn btn-primary">
-            <a style="color: #ffffff; text-decoration: none;"> Iniciar sesión</a>
           </button>
         </div>
       </form>
-      </div>
+    </div>
 
-    </div>
-    </div>
+  </div>
+</div>

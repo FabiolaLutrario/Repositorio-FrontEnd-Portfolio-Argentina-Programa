@@ -1,35 +1,35 @@
-<div class="modal fade" id="editarTituloModal" tabindex="-1"
-aria-labelledby="editarTituloModalLabel" aria-hidden="true">
-<div class="modal-dialog">
-    <form [formGroup]="form" (ngSubmit)="onEnviar($event)" novalidate #f="ngForm"
-    name="tituloFormEdit">
-    <div class="modal-content">
-        <div class="modal-header">
-            <h4 class="modal-title" id="editarTituloModalLabel">Editar Título</h4>
-            <button type="button" style="width:5px; height: 5px;" class="btn-close"
-                data-bs-dismiss="modal" aria-label="Close" (click)="cargarDatosUsuario()"></button>
-        </div>
+<div class="modal fade" id="editarTituloModal" tabindex="-1" aria-labelledby="editarTituloModalLabel"
+    aria-hidden="true">
+    <div class="modal-dialog">
+        <form [formGroup]="form" (ngSubmit)="onEnviar($event)" novalidate #f="ngForm" name="tituloFormEdit">
+            <div class="modal-content">
+                <div class="modal-header">
+                    <h4 class="modal-title" id="editarTituloModalLabel">Editar Título</h4>
+                    <button type="button" style="width:5px; height: 5px;" class="btn-close" data-bs-dismiss="modal"
+                        aria-label="Close" (click)="cargarDatosUsuario()"></button>
+                </div>
 
-        <div class="modal-body">
-            <div class="mb-3">
-                <h5 class="form-label">Título:</h5>
-                <input class="form-control" type="text" id="titulo" name="titulo" 
-                formControlName="titulo" [(ngModel)]="usuario.titulo" autofocus>
+                <div class="modal-body">
+                    <div class="mb-3">
+                        <h5 class="form-label">Título:</h5>
+                        <input class="form-control" type="text" id="titulo" name="titulo" formControlName="titulo"
+                            [(ngModel)]="usuario.titulo" autofocus>
+                    </div>
+                    <div *ngIf="Titulo?.errors  && Titulo?.touched">
+                        <p *ngIf="Titulo?.hasError('required')" style="text-align: center;" class="alert alert-danger">
+                            El título es requerido.
+                        </p>
+                    </div>
+
+                </div>
+                <div class="modal-footer">
+                    <button type="submit" class="btn btn-primary" data-bs-dismiss="modal">Actualizar</button>
+                    <button type="button" class="btn btn-secondary" data-bs-dismiss="modal"
+                        (click)="cargarDatosUsuario()">
+                        Cerrar
+                    </button>
+                </div>
             </div>
-            <div *ngIf="Titulo?.errors  && Titulo?.touched">
-                <p *ngIf="Titulo?.hasError('required')" style="text-align: center;" class="alert alert-danger">
-                  El título es requerido.
-                </p>
-              </div>
-
-        </div>
-        <div class="modal-footer">
-            <button type="submit" class="btn btn-primary" data-bs-dismiss="modal">Actualizar</button>
-            <button type="button" class="btn btn-secondary" data-bs-dismiss="modal" (click)="cargarDatosUsuario()">
-                Cerrar
-            </button>
-        </div>
+        </form>
     </div>
-    </form>
-</div>
 </div>

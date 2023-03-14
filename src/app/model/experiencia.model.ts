@@ -1,4 +1,3 @@
-
 export class Experiencia {
     id? : number;
     logo: string;

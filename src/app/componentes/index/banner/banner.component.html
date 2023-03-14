@@ -1,16 +1,16 @@
 <div class="banner" style="position:relative;">
 
-        <!-- Botton editar banner modal -->
-        <button type="button" id="botonEditarBanner" style="position:absolute; margin-top:2rem; right: 3rem;" data-bs-toggle="modal"
-        data-bs-target="#editarBannerModal" *ngIf="isLogged" class="btn btn-success rounded-circle btn-sm">
+    <!-- Botton editar banner modal -->
+    <button type="button" id="botonEditarBanner" style="position:absolute; margin-top:2rem; right: 3rem;"
+        data-bs-toggle="modal" data-bs-target="#editarBannerModal" *ngIf="isLogged"
+        class="btn btn-success rounded-circle btn-sm">
         <i class="fa-solid fa-pen">
         </i>
     </button>
 
-                <!-- Modal editar banner -->
-                <app-modal-editar-banner>
-                </app-modal-editar-banner>
+    <!-- Modal editar banner -->
+    <app-modal-editar-banner>
+    </app-modal-editar-banner>
 
-                <!-- <img [src]="banner" class="d-block w-100" alt="..."> -->
-    <img src="/assets/IMG/banner 4.jpg" class="d-block w-100" alt="...">
+    <img src={{banner}} class="d-block w-100" alt="...">
 </div>

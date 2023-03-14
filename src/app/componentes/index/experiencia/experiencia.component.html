@@ -8,58 +8,59 @@
             <div class="col-1 text-end" style="padding-top: 1rem; padding-right: 1rem;">
 
                 <!-- Button agregar experiencia -->
-                 <button id="botonAgregarExperiencia"
-                    class="btn btn-success rounded-circle btn-sm" *ngIf="isLogged"
+                <button id="botonAgregarExperiencia" class="btn btn-success rounded-circle btn-sm" *ngIf="isLogged"
                     routerLink="/addExp">
                     <i class="fa-solid fa-plus">
                     </i>
                 </button>
-
             </div>
-
         </div>
 
         <div class="card mb-3">
             <div id="bordeTarjetas" *ngFor="let Experiencia of experiencias" class="row g-0">
                 <div class="col-1 text-center">
-                    <img [src]="Experiencia.logo" class="img-fluid rounded-start" width="50px"
-                        alt="...">
+                    <img src={{Experiencia.logo}} class="img-fluid rounded-start" width="50px" alt="...">
                 </div>
                 <div class="col-10">
                     <div style="padding: 0;" class="card-body">
                         <h4 id="experienciaCargo" class="card-title">{{Experiencia.cargo}}</h4>
-                        <p id="experienciaEmpresa" >{{Experiencia.empresa}}</p>
+                        <p id="experienciaEmpresa">{{Experiencia.empresa}}</p>
                         <p id="experienciaPeriodo" class="card-text"><small class="text-muted">
-                            {{Experiencia.fechaInicio | date:"dd-MM-yyyy"}} | 
-                            {{Experiencia.fechaFin | date:"dd-MM-yyyy"}} 
-                            <p *ngIf="Experiencia.fechaFin==null" style="display: inline-block;">Actualidad</p>
-                        </small></p>
+                                {{Experiencia.fechaInicio | date:"dd-MM-yyyy"}} |
+                                {{Experiencia.fechaFin | date:"dd-MM-yyyy"}}
+                                <p *ngIf="Experiencia.fechaFin==null" style="display: inline-block;">Actualidad</p>
+                            </small></p>
                         <p id="experienciaDescripcion" class="card-text">{{Experiencia.descripcion}}
                         </p>
                     </div>
                 </div>
 
                 <div class="col-1 text-end">
-                    
+
                     <!-- Button editar experiencia -->
-                     <button type="button" id="botonEditarExperiencia"
-                        class="btn btn-success rounded-circle btn-sm" *ngIf="isLogged"
-                        routerLink="/editExp/{{Experiencia.id}}">
+                    <button type="button" id="botonEditarExperiencia" class="btn btn-success rounded-circle btn-sm"
+                        *ngIf="isLogged" routerLink="/editExp/{{Experiencia.id}}">
                         <i class="fa-solid fa-pen">
                         </i>
                     </button>
-                
-                
+
                     <!-- Button eliminar experiencia -->
-                    <button id="botonEliminarExperiencia" type="button"
+                    <button id="botonEliminarExperiencia" type="button" class="btn btn-success rounded-circle btn-sm"
+                        *ngIf="isLogged">
+                        <i class="fa-solid fa-trash-can" (click)="delete(Experiencia.id)">
+                        </i>
+                    </button>
+
+                    <!-- Button eliminar experiencia -->
+                    <!--                     <button id="botonEliminarExperiencia" type="button"
                     class="btn btn-success rounded-circle btn-sm" *ngIf="isLogged">
                     <i class="fa-solid fa-trash-can"
                     data-bs-toggle="modal" data-bs-target="#eliminarExperienciaModal">
                     </i>
-                </button>
-  
-  <!-- Modal eliminar experiencia -->
-  <div class="modal fade" id="eliminarExperienciaModal" tabindex="-1" aria-labelledby="eliminarExperienciaModalLabel" aria-hidden="true">
+                </button> -->
+
+                    <!-- Modal eliminar experiencia -->
+                    <!--   <div class="modal fade" id="eliminarExperienciaModal" tabindex="-1" aria-labelledby="eliminarExperienciaModalLabel" aria-hidden="true">
     <div class="modal-dialog">
       <div class="modal-content">
         <div class="modal-header">
@@ -80,7 +81,7 @@
         </div>
       </div>
     </div>
-  </div>
+  </div> -->
                 </div>
             </div>
         </div>

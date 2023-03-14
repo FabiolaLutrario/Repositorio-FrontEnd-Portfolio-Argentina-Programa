@@ -5,7 +5,6 @@ import { HabilidadService } from 'src/app/servicios/habilidad.service';
 import { TokenService } from 'src/app/servicios/token.service';
 import { UsuarioService } from 'src/app/servicios/usuario.service';
 
-
 @Component({
   selector: 'app-habilidades',
   templateUrl: './habilidades.component.html',
