@@ -13,7 +13,7 @@
                     <div class="mb-3">
                         <h5 style="text-align:left" class="form-label">Seleccione una foto:</h5>
                         <input class="form-control" type="file" id="foto" formControlName="foto" name="foto"
-                            [(ngModel)]="foto">
+                            [(ngModel)]="foto" (change)="uploadImage($event)" accept=".jpg, .jpeg, .png">
                     </div>
 
                 </div>

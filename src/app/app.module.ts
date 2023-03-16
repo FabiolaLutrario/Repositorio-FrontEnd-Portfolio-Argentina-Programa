@@ -33,6 +33,9 @@ import { ModalEditarFotoComponent } from './componentes/modals/modal-editar-foto
 import { ModalEditarBannerComponent } from './componentes/modals/modal-editar-banner/modal-editar-banner.component';
 import { EditarProyectoComponent } from './componentes/index/proyectos/editar-proyecto/editar-proyecto.component';
 import { AgregarProyectoComponent } from './componentes/index/proyectos/agregar-proyecto/agregar-proyecto.component';
+import { initializeApp,provideFirebaseApp } from '@angular/fire/app';
+import { environment } from '../environments/environment';
+import { provideStorage,getStorage } from '@angular/fire/storage';
 @NgModule({
   declarations: [
     AppComponent,
@@ -70,7 +73,9 @@ import { AgregarProyectoComponent } from './componentes/index/proyectos/agregar-
     HttpClientModule,
     AppRoutingModule,
     FormsModule,
-    ReactiveFormsModule
+    ReactiveFormsModule,
+    provideFirebaseApp(() => initializeApp(environment.firebase)),
+    provideStorage(() => getStorage())
   ],
   providers: [
     interceptorProvider
