@@ -9,8 +9,8 @@ import { JwtDto } from '../model/jwt-dto';
   providedIn: 'root'
 })
 export class AuthService {
-  // authURL = 'https://backendportfolio-fabiolalutrario.koyeb.app/auth/';
-  authURL = 'http://localhost:8080/auth/';
+  authURL = 'https://backendportfolio-fabiolalutrario.koyeb.app/auth/';
+  //authURL = 'http://localhost:8080/auth/';
   currentUserSubject: BehaviorSubject<any>;
 
   constructor(private httpClient: HttpClient) { 

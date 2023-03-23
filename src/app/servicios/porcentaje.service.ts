@@ -9,8 +9,8 @@ import { Porcentaje } from '../model/porcentaje';
   
 export class PorcentajeService {
 
-    // expURL = 'https://backendportfolio-fabiolalutrario.koyeb.app/porcentaje/'
-    expURL = 'http://localhost:8080/porcentaje/'
+    expURL = 'https://backendportfolio-fabiolalutrario.koyeb.app/porcentaje/'
+    //expURL = 'http://localhost:8080/porcentaje/'
 
     constructor(private httpClient: HttpClient) { }
 
