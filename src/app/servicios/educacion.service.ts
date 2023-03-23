@@ -8,7 +8,8 @@ import { Educacion } from '../model/educacion.model';
 })
 export class EducacionService {
 
-    expURL = 'https://backendportfolio-fabiolalutrario.koyeb.app/educacion/'
+    // expURL = 'https://backendportfolio-fabiolalutrario.koyeb.app/educacion/'
+    expURL = 'http://localhost:8080/educacion/'
 
   constructor(private httpClient: HttpClient) { }
 

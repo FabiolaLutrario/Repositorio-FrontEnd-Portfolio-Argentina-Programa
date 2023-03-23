@@ -8,7 +8,8 @@ import { Experiencia } from '../model/experiencia.model';
 })
 export class ExperienciaService {
 
-  expURL = 'https://backendportfolio-fabiolalutrario.koyeb.app/expLaboral/'
+  // expURL = 'https://backendportfolio-fabiolalutrario.koyeb.app/expLaboral/'
+  expURL = 'http://localhost:8080/expLaboral/'
 
   constructor(private httpClient: HttpClient) { }
 

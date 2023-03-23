@@ -11,7 +11,8 @@ import { TokenService } from './token.service';
 
 export class UsuarioService {
 
-  URL='https://backendportfolio-fabiolalutrario.koyeb.app/auth/'
+  // URL='https://backendportfolio-fabiolalutrario.koyeb.app/auth/'
+  URL = 'http://localhost:8080/auth/'
 
   constructor(private http:HttpClient, private authService: AuthService, 
     private tokenService: TokenService) { }

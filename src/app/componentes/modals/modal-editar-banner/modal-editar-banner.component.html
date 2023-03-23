@@ -13,9 +13,12 @@
                     <div class="mb-3">
                         <h5 class="form-label">Seleccione una imagen:</h5>
                         <input class="form-control" type="file" id="banner" formControlName="banner" name="banner"
-                            [(ngModel)]="banner" (change)="uploadImage($event)" accept=".jpg, .jpeg, .png">
+                            (change)="uploadImage($event)" accept=".jpg, .jpeg, .png">
                     </div>
 
+                    <div class="imagen">
+                        <img src="{{imagen[0]}}" width="200px">
+                    </div>
                 </div>
                 <div class="modal-footer">
                     <button type="submit" data-bs-dismiss="modal" class="btn btn-primary">Actualizar</button>

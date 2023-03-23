@@ -9,7 +9,8 @@ import { Proyecto } from '../model/proyecto';
 
 export class ProyectoService {
 
-    expURL = 'https://backendportfolio-fabiolalutrario.koyeb.app/proyecto/'
+    // expURL = 'https://backendportfolio-fabiolalutrario.koyeb.app/proyecto/'
+    expURL = 'http://localhost:8080/proyecto/'
 
     constructor(private httpClient: HttpClient) { }
 
