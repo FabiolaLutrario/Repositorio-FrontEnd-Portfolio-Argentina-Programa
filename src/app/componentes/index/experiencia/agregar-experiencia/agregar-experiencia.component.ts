@@ -4,6 +4,7 @@ import { Router } from '@angular/router';
 import { AuthService } from 'src/app/servicios/auth.service';
 import { Experiencia } from 'src/app/model/experiencia.model';
 import { ExperienciaService } from 'src/app/servicios/experiencia.service';
+import { ImagenService } from 'src/app/servicios/imagen.service';
 
 @Component({
   selector: 'app-agregar-experiencia',
@@ -20,9 +21,11 @@ export class AgregarExperienciaComponent implements OnInit {
   descripcion : string ="";
   usuarioId: number;
   form:FormGroup;
+  imagen: any []=[];
 
   constructor(private experienciaService: ExperienciaService, private router: Router,
-    private formBuilder: FormBuilder, private authService:AuthService) { 
+    private formBuilder: FormBuilder, private authService:AuthService,
+    public imagenService: ImagenService) { 
       this.form= this.formBuilder.group({
         logo:[''],
         cargo:['',[Validators.required]],
@@ -61,6 +64,22 @@ onCreate():void{
       this.router.navigate(['']);
     }
     )
+  }
+
+  uploadImage($event:any){
+    const id = this.authService.usuarioAuth.userId;
+    const name = Date.now() + "experienciaPerfil_" + id;
+    let archivo = $event.target.files
+    let reader = new FileReader();
+    reader.readAsDataURL(archivo[0]);
+    reader.onloadend = () =>{
+      console.log(reader.result);
+      this.imagen.push(reader.result);
+      this.imagenService.uploadImage("experiencia", name, reader.result).then(urlImagen=>{
+        this.logo=urlImagen;
+      }
+      );
+    }
   }
 
   get Logo(){

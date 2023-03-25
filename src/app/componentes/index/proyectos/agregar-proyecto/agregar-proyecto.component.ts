@@ -4,6 +4,7 @@ import { Router } from '@angular/router';
 import { AuthService } from 'src/app/servicios/auth.service';
 import { Proyecto } from 'src/app/model/proyecto';
 import { ProyectoService } from 'src/app/servicios/proyecto.service';
+import { ImagenService } from 'src/app/servicios/imagen.service';
 
 @Component({
   selector: 'app-agregar-proyecto',
@@ -19,9 +20,12 @@ export class AgregarProyectoComponent implements OnInit {
   imagen:string="";
   usuarioId: number;
   form:FormGroup;
+  imagenLogo: any []=[];
+  imagenProyecto: any []=[];
 
   constructor(private proyectoService: ProyectoService, private router: Router,
-    private formBuilder: FormBuilder, private authService:AuthService) { 
+    private formBuilder: FormBuilder, private authService:AuthService,
+    public imagenService: ImagenService) { 
       this.form= this.formBuilder.group({
         logo:[''],
         nombre:['',[Validators.required]],
@@ -59,6 +63,38 @@ export class AgregarProyectoComponent implements OnInit {
         this.router.navigate(['']);
       }
       )
+    }
+
+    uploadLogo($event:any){
+      const id = this.authService.usuarioAuth.userId;
+      const name = Date.now() + "logoProyectoPerfil_" + id;
+      let archivo = $event.target.files
+      let reader = new FileReader();
+      reader.readAsDataURL(archivo[0]);
+      reader.onloadend = () =>{
+        console.log(reader.result);
+        this.imagenLogo.push(reader.result);
+        this.imagenService.uploadImage("proyecto", name, reader.result).then(urlImagen=>{
+          this.logo=urlImagen;
+        }
+        );
+      }
+    }
+
+    uploadImage($event:any){
+      const id = this.authService.usuarioAuth.userId;
+      const name = Date.now() + "imagenProyectoPerfil_" + id;
+      let archivo = $event.target.files
+      let reader = new FileReader();
+      reader.readAsDataURL(archivo[0]);
+      reader.onloadend = () =>{
+        console.log(reader.result);
+        this.imagenProyecto.push(reader.result);
+        this.imagenService.uploadImage("proyecto", name, reader.result).then(urlImagen=>{
+          this.imagen=urlImagen;
+        }
+        );
+      }
     }
 
     get Logo(){

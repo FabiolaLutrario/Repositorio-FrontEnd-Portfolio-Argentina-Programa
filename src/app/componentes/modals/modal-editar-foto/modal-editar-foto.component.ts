@@ -3,7 +3,7 @@ import { Router, ActivatedRoute } from '@angular/router';
 import { FormBuilder, FormGroup, Validators } from '@angular/forms';
 import { UsuarioService } from 'src/app/servicios/usuario.service';
 import { AuthService } from 'src/app/servicios/auth.service';
-import { FotoPerfilService } from 'src/app/servicios/foto-perfil.service';
+import { ImagenService } from 'src/app/servicios/imagen.service';
 
 @Component({
   selector: 'app-modal-editar-foto',
@@ -16,7 +16,7 @@ export class ModalEditarFotoComponent implements OnInit {
   imagen: any []=[];
 
   constructor(private router: Router, private usuarioService: UsuarioService, private formBuilder: FormBuilder,
-    public fotoPerfilService: FotoPerfilService, private activatedRouter: ActivatedRoute,
+    public imagenService: ImagenService, private activatedRouter: ActivatedRoute,
     private authService: AuthService) { 
     this.form= this.formBuilder.group({
       foto:[''],
@@ -47,7 +47,7 @@ export class ModalEditarFotoComponent implements OnInit {
     reader.onloadend = () =>{
       console.log(reader.result);
       this.imagen.push(reader.result);
-      this.fotoPerfilService.uploadImage(name, reader.result).then(urlImagen=>{
+      this.imagenService.uploadImage("fotoPerfil", name, reader.result).then(urlImagen=>{
         this.usuarioService.updateFoto(urlImagen).subscribe(
           data=>{
           }

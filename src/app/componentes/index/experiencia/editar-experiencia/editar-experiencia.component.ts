@@ -11,7 +11,7 @@ import { FormBuilder, FormGroup, Validators } from '@angular/forms';
 })
 export class EditarExperienciaComponent implements OnInit {
   experiencia: Experiencia = null;
-  logo: string;
+  // logo: string;
   cargo: string;
   empresa: string;
   fechaInicio : string;
@@ -23,7 +23,7 @@ export class EditarExperienciaComponent implements OnInit {
    constructor(private experienciaService: ExperienciaService, private activatedRouter: ActivatedRoute,
     private router: Router, private formBuilder: FormBuilder) { 
        this.form= this.formBuilder.group({
-        logo:[''],
+        //logo:[''],
         cargo:['',[Validators.required]],
         empresa:['', [Validators.required]],
         esTrabajoActual:[''],

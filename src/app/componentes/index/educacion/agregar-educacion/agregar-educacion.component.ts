@@ -4,6 +4,7 @@ import { Router } from '@angular/router';
 import { AuthService } from 'src/app/servicios/auth.service';
 import { Educacion } from 'src/app/model/educacion.model';
 import { EducacionService } from 'src/app/servicios/educacion.service';
+import { ImagenService } from 'src/app/servicios/imagen.service';
 
 @Component({
   selector: 'app-agregar-educacion',
@@ -20,9 +21,11 @@ export class AgregarEducacionComponent implements OnInit {
   descripcion : string ="";
   usuarioId: number;
   form:FormGroup;
+  imagen: any []=[];
 
   constructor(private educacionService: EducacionService, private router: Router,
-    private formBuilder: FormBuilder, private authService:AuthService) { 
+    private formBuilder: FormBuilder, private authService:AuthService,
+    public imagenService: ImagenService) { 
       this.form= this.formBuilder.group({
         titulo:['',[Validators.required]],
         centroEducativo:['', [Validators.required]],
@@ -61,6 +64,22 @@ onCreate():void{
       this.router.navigate(['']);
     }
     )
+  }
+
+  uploadImage($event:any){
+    const id = this.authService.usuarioAuth.userId;
+    const name = Date.now() + "educacionPerfil_" + id;
+    let archivo = $event.target.files
+    let reader = new FileReader();
+    reader.readAsDataURL(archivo[0]);
+    reader.onloadend = () =>{
+      console.log(reader.result);
+      this.imagen.push(reader.result);
+      this.imagenService.uploadImage("educacion", name, reader.result).then(urlImagen=>{
+        this.logo=urlImagen;
+      }
+      );
+    }
   }
 
   get Titulo(){
